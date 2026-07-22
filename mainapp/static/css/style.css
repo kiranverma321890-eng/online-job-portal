@@ -1,0 +1,271 @@
+body{
+    overflow-x: hidden;
+}
+/*NAVBAR CSS START*/
+
+#navbar {
+    /*backdrop-filter: blur(20px);*/
+    padding: 15px 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.navbar-brand {
+    font-size: 25px;
+    font-weight: 700;
+}
+.nav-link {
+    font-weight: 500;
+    margin-left: 15px;
+    color:skyblue;
+}
+.nav-link:hover {
+    color: #2563eb;
+}
+/* Hero Section 
+.hero {
+    min-height:100vh;
+    padding-top:120px;
+    background:transparent;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem,5vw,4rem);
+    line-height:1.1;
+    letter-spacing:-1px;
+}
+.hero p {
+    max-width:550px;
+    font-size:18px;
+}
+
+.hero img {
+    max-height:500px;
+    animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+
+/* Buttons 
+
+.btn-primary {
+    background:#2563eb;
+    border:none;
+    padding:12px 30px;
+    border-radius:30px;
+}
+.btn-primary:hover {
+    background:#1d4ed8;
+}
+/* Cards */
+.card {
+    border-radius:20px;
+    transition:0.3s;
+}
+.card:hover {
+    transform:translateY(-10px);
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.12)!important;
+}
+/* Statistics */
+section {
+    overflow:hidden;
+}h2 {
+    letter-spacing:-0.5px;
+}
+/* Mobile 
+@media(max-width:768px){
+    .hero{
+        text-align:center;
+        padding-top:100px;
+    }
+    .hero img{
+        margin-top:40px;
+    }
+}*/
+/*NAVBAR CSS END*/
+
+/*INDEX PAGE START
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero content{
+    text-align:center;
+    color:white;
+    z-index:2;
+}
+.hero h1{
+font-size:70px;
+font-weight:800;
+}
+.hero h1 span{
+    background: linear-gradient(90deg,#00ffff,#6366f1);
+    color:transparent;
+}
+.hero p{
+    font-size:20px;
+    color:#cbd5e1;
+    max-width:600px;
+}
+/*Glass search
+.search-box{
+    margin-top:40px;
+    padding:15px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter: blur(20px);
+    border-radius:20px;
+}
+.search-box input{
+    padding:15px;
+    border:none;
+    outline:none;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    animation:move 10s infinite alternate;
+}
+.orb1{
+    width:400px;
+    height:400px;
+    background:#00ffff;
+    top:-100px;
+    left:-100px;
+}
+.orb2{
+    width:500px;
+    height:500px;
+    background:#6366f1;
+    right:-150px;
+    bottom:-100px;
+}
+.orb3{
+    width:250px;
+    height:250px;
+    background:#ec4899;
+    left:50%;
+    top:50%;
+}
+/*WORK WITHINDUSTRY LEADERS -INDEX PAGE*/
+.companies{
+    background:#fff;
+}
+.company-slider{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.company-slider img{
+    width:120px;
+    opacity:.6;
+    transition:.3s;
+    filter:grayscale(100%);
+}
+
+.company-slider img:hover{
+    opacity:1;
+    filter:none;
+    transform:scale(1.08);
+}
+
+@keyframes move{
+    from{
+        transform:translate(0,0);   }
+    to{
+        transform:translate(80px,-50px);}
+}
+/*INDEX PAGE END*/
+
+/* ======================
+    RIPPLE BACKGROUND
+====================== 
+.ripple-bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:-1;
+    background:
+    radial-gradient(circle at center, #111827,  #020617
+    );
+}
+.circle{
+    position:absolute;
+    border-radius:50%;
+    border:2px solid rgba(0,255,255,.4);
+    animation:pulse 8s infinite;
+}
+.c1{
+    width:300px;
+    height:300px;
+    top:20%;
+    left:20%;
+}
+.c2{
+    width:600px;
+    height:600px;
+    top:10%;
+    left:50%;
+    animation-delay:2s;
+}
+.c3{
+    width:900px;
+    height:900px;
+    top:-20%;
+    left:-20%;
+    animation-delay:4s;
+}
+@keyframes pulse{
+0%{
+    transform:scale(.8);
+    opacity:.2;
+}
+50%{
+    transform:scale(1.2);
+    opacity:.8;
+}
+100%{
+    transform:scale(.8);
+    opacity:.2;
+}
+}
+/* Click ripple 
+.click-ripple{
+position:fixed;
+width:10px;
+height:10px;
+border-radius:50%;
+background:#00ffff;
+transform:translate(-50%,-50%);
+animation:ripple .8s linear;
+pointer-events:none;
+}
+@keyframes ripple{
+from{
+width:10px;
+height:10px;
+opacity:1;
+}
+to{
+width:300px;
+height:300px;
+opacity:0;
+}
+}

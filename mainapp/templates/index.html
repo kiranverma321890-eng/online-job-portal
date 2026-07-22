@@ -1,6 +1,167 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block main %}
 
+{% block main %}
+<!--RIPPLE BACKGROUND-->
+<div class="ripple-wrapper">
+    <div class="ripple-ring ring-1"></div>
+    <div class="ripple-ring ring-2"></div>
+    <div class="ripple-ring ring-3"></div>
+    <div class="ripple-ring ring-4"></div>
+</div>
+<!--DYNAMIC BACKGROUNDA ANIMATIONS-->
+
+<!-- Hero -->
+
+<section class="bg-light py-4">
+    <div class="container py-4">
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+                <h1 class="display-5 fw-bold">
+                    Find Your Dream Job.<br>Build Your Future.
+                </h1>
+
+                <p class="text-secondary mt-3">
+                    Galaxy Resources Pvt. Ltd. connects job seekers with companies.
+                    Search jobs, apply online and manage your career easily.
+                </p>
+
+                <a href="#" class="btn btn-info me-2">Explore Jobs</a>
+                <a href="{% url 'register' %}" class="btn btn-warning">Register Now</a>
+            </div>
+
+            <div class="col-lg-5 text-center mt-3">
+                <div class="bg-white shadow rounded-4 p-4">
+                    <h2 class="text-info">Galaxy Resources</h2>
+                    <p class="text-secondary">Connecting Talent With Opportunity</p>
+                    <i class="bi bi-briefcase display-3 text-warning"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Stats -->
+<section class="bg-info text-white py-4">
+    <div class="container">
+        <div class="row text-center">
+
+            {% for num,text in stats %}
+            <div class="col-md-3">
+                <h2 class="fw-bold">{{num}}</h2>
+                <p>{{text}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Jobs -->
+<section class="bg-light py-4">
+    <div class="container">
+
+        <h2 class="text-center fw-bold">Featured Jobs</h2>
+        <p class="text-center text-secondary">Latest opportunities from top companies</p>
+
+        <div class="row g-3 mt-3">
+
+            {% for job in jobs %}
+            <div class="col-md-4">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body">
+
+                        <h4 class="text-info">{{job.title}}</h4>
+                        <p class="text-secondary">{{job.skills}}</p>
+                        <p>Location: {{job.location}}</p>
+
+                        <a href="#" class="btn btn-info">Apply Now</a>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<!-- About -->
+<section class="bg-warning py-4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <h2 class="fw-bold">About Galaxy Resources</h2>
+                <p>
+                    A secure recruitment platform connecting organizations
+                    with talented professionals.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="bg-white shadow rounded p-3">
+                    <h5 class="text-info">Our Mission</h5>
+                    <p class="text-secondary">
+                        Create an efficient digital recruitment system.
+                    </p>
+
+                    <h5 class="text-info">Our Vision</h5>
+                    <p class="text-secondary">
+                        Become a trusted recruitment platform.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- How It Works -->
+<section class="bg-light py-4">
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-3">How It Works</h2>
+
+        <div class="row g-3">
+
+            {% for step in steps %}
+            <div class="col-md-3">
+                <div class="card shadow border-0 text-center">
+                    <div class="card-body">
+
+                        <h2 class="text-info">{{step.number}}</h2>
+                        <h5>{{step.title}}</h5>
+                        <p class="text-secondary">{{step.desc}}</p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="bg-info text-white py-4">
+    <div class="container text-center">
+
+        <h2 class="fw-bold">Ready To Start Your Career?</h2>
+        <p>Join Galaxy Resources today.</p>
+
+        <a href="{% url 'register' %}" class="btn btn-warning">
+            Create Account
+        </a>
+
+    </div>
+</section>
 
 {% endblock %}

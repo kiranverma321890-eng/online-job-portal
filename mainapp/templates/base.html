@@ -1,44 +1,80 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Job Portal</title>
+    <!--Bootstarp css-->
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!--Custom css-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
-    <div class="container-fluid">
-        <!--Navbar starts-->
-        <div class="row">
-            <div class="col-sm-12">
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Online Job Portal</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                                <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-                                <a class="nav-link active" href="{% url 'contact' %}">Contact Us</a>
-                                <a class="nav-link active" href="{% url 'about'%}">About Us</a>
-                                <a class="nav-link active" href="{% url 'login' %}">Login</a>
-                                <a class="nav-link active" href="{% url 'register' %}">Register</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+     <div class="container-fluid p-0">
+        <!-- Navbar starts -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top shadow-sm py-3" id="navbar">
+            <div class="container">
+                <!-- Brand / Logo -->
+                <a class="navbar-brand fw-bold text-primary fs-4 d-flex align-items-center" href="{% url 'index' %}">
+                    <span class="bg-primary text-white rounded-3 p-2 me-2 d-inline-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                        <i class="fa fa-briefcase fs-6"></i>
+                    </span>
+                    job<span class="text-dark">Portal</span>
+                </a>
+
+                <!-- Toggler button for mobile -->
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nav Links -->
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 mt-3 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium text-dark px-3" href="{% url 'index' %}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium text-secondary px-3" href="{% url 'about' %}">About Us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium text-secondary px-3" href="{% url 'contact' %}">Contact Us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium text-secondary px-3" href="{% url 'login' %}">Login</a>
+                        </li>
+
+                        <li class="nav-item ms-lg-2">
+                            <a class="btn btn-primary fw-semibold px-4 rounded-pill shadow-sm" href="{% url 'register' %}">Register</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </nav>
     </div>
     <!--Navbar end-->
 
-
-    {% block main %}
-    {% endblock %}
+    <div style="padding-top: 80px;">
+        {% block main %}
+        {% endblock %}
+    </div>
 
     <!--footer start-->
     <div class="row">
@@ -90,7 +126,8 @@
                                     <i class="fas fa-gem me-3"></i>Company name
                                 </h6>
                                 <p>
-                                    Here you can use rows and columns to organize your footer content. Lorem ipsum
+                                    Here you can use rows and columns to organize your
+                                    footer content. Lorem ipsum
                                     dolor sit amet, consectetur adipisicing elit.
                                 </p>
                             </div>
@@ -124,16 +161,16 @@
                                     Useful links
                                 </h6>
                                 <p>
-                                    <a href="#!" class="text-reset">Contact Us</a>
+                                    <a href="{% url 'contact' %}" class="text-reset">Contact Us</a>
                                 </p>
                                 <p>
-                                    <a href="#!" class="text-reset">About Us</a>
+                                    <a href="{% url 'about' %}" class="text-reset">About Us</a>
                                 </p>
                                 <p>
-                                    <a href="#!" class="text-reset">Login</a>
+                                    <a href="{% url 'login' %}" class="text-reset">Login</a>
                                 </p>
                                 <p>
-                                    <a href="#!" class="text-reset"></a>
+                                    <a href="{% url 'register' %}" class="text-reset">Register</a>
                                 </p>
                             </div>
                             <!-- Grid column -->
@@ -142,7 +179,8 @@
                             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                                 <!-- Links -->
                                 <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                                <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                                <p><i class="fas fa-home me-3"></i> New York, NY 10012, US
+                                </p>
                                 <p>
                                     <i class="fas fa-envelope me-3"></i>
                                     info@example.com
@@ -159,7 +197,7 @@
 
                 <!-- Copyright -->
                 <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                    © 2021 Copyright:
+                    © 2026 Copyright:
                     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
                 </div>
                 <!-- Copyright -->
@@ -168,7 +206,15 @@
         </div>
     </div>
     <!--footer end-->
+    <div class="ripple-bg">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
+    
+
     <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 
 </html>
