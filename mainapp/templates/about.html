@@ -1,7 +1,441 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block main %}
-<h1 class="my-5">about page</h1>
+{% block title %}
+About Us | Galaxy Resources Pvt. Ltd.
+{% endblock %}
+{% block content %}
+
+<section class="company-intro mt-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Content -->
+            <div class="col-lg-6">
+                <span class="text-info fw-semibold"> Who We Are </span>
+                <h2 class="section-title mt-3">Empowering Businesses And Professionals </h2>
+                <p class="mt-4">Galaxy Resources Pvt. Ltd. provides modern recruitment
+                    solutions designed to connect companies with the right
+                    talent. Our approach combines industry knowledge,
+                    technology, and human expertise.</p>
+                <p> We focus on creating meaningful connections between employers and candidates while delivering a
+                    smooth, transparent hiring experience. </p>
+                <div class="mt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-check-circle-fill text-info fs-4 me-3"></i>
+                        <span> Professional Recruitment Services</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-check-circle-fill text-info fs-4 me-3"></i>
+                        <span>
+                            Industry Focused Hiring Solutions
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-info fs-4 me-3"></i>
+                        <span> Candidate-Centric Approach</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Video -->
+            <div class="col-lg-6">
+                <div class="glass-card video-wrapper p-3">
+                    <video class="company-video" autoplay muted loop playsinline>
+                        <source src="{% static 'images/animation.mp4' %}" type="video/mp4">
+                        Your browser does not support video.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="review-section">
+
+    <div class="review-box">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title mt-2">
+                Review Of The Users
+            </h2>
+
+            <span class="text-info fw-semibold">
+                Empowering careers and businesses through smart, reliable, and efficient hiring solutions.
+            </span>
+
+        </div>
+
+        <div class="review-wrapper">
+
+            <div class="review-track">
+
+                <div class="review-card">
+                    <h4>Amit Singh</h4>
+                    <span>HR Manager</span>
+                    <p>
+                        Smooth and transparent recruitment process.
+                    </p>
+                </div>
+
+
+                <div class="review-card">
+                    <h4>Priya Verma</h4>
+                    <span>Regional Director</span>
+                    <p>
+                        Genuine opportunities and professional guidance.
+                    </p>
+                </div>
+
+
+                <div class="review-card">
+                    <h4>Neha Kapoor</h4>
+                    <span>CFO</span>
+                    <p>
+                        Excellent hiring support and quality candidates.
+                    </p>
+                </div>
+
+
+                <div class="review-card">
+                    <h4>Rahul Sharma</h4>
+                    <span>CEO</span>
+                    <p>
+                        Professional recruitment experience.
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about-hero">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-7">
+                <span class="text-info fw-semibold">
+                    ABout Galaxy Resorces
+                </span>
+                <h1 class="display-4 fw-bold mt-3">
+                    Connecting People
+                    Building Careers
+                    Creating Success
+                </h1>
+                <p class="lead mt-4 text-light opacity-75">Galaxy Resources Pvt. Ltd. is a professional recruitment
+                    platform helping organizations find skilled talent and
+                    helping professionals discover better career opportunities.</p>
+            </div>
+            <div class="col-lg-5 mt-5 mt-lg-0">
+                <div class="glass-card p-4 text-center">
+                    <i class="bi bi-building-check display-1 text-info"></i>
+                    <h4 class="mt-4">Trusted HR Partner</h4>
+                    <p class="text-muted"> Delivering reliable recruitment solutions
+                        with technology and expertise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mission-vision-section">
+
+    <div class="container">
+
+
+        <div class="row g-4">
+
+
+            <!-- Mission -->
+
+            <div class="col-lg-6">
+
+
+                <div class="glass-card p-5 hover-lift h-100">
+
+
+                    <div class="icon-box mb-4">
+
+                        <i class="bi bi-bullseye"></i>
+
+                    </div>
+
+
+                    <h3>
+
+                        Our Mission
+
+                    </h3>
+
+
+                    <p class="mt-3">
+
+                        Our mission is to bridge the gap between talented
+                        professionals and organizations by providing
+                        transparent, efficient, and reliable recruitment
+                        solutions.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <!-- Vision -->
+
+            <div class="col-lg-6">
+
+
+                <div class="glass-card p-5 hover-lift h-100">
+
+
+                    <div class="icon-box mb-4">
+
+                        <i class="bi bi-eye-fill"></i>
+
+                    </div>
+
+
+                    <h3>
+
+                        Our Vision
+
+                    </h3>
+
+
+                    <p class="mt-3">
+
+                        To become a trusted global recruitment partner by
+                        creating meaningful career opportunities and helping
+                        businesses build successful teams.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+<!-- SERVICES SECTION -->
+<section class="services-section">
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <span class="text-info fw-semibold">
+                Our Services
+            </span>
+
+            <h2 class="section-title mt-2">
+                Recruitment Solutions Designed For Growth
+            </h2>
+
+            <p class="section-subtitle">
+                Complete HR solutions to simplify hiring and build strong teams.
+            </p>
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="glass-card p-4 service-card hover-lift">
+
+                    <i class="bi bi-search display-5 text-info"></i>
+
+                    <h4 class="mt-4">
+                        Talent Acquisition
+                    </h4>
+
+                    <p>
+                        Finding qualified candidates through professional
+                        recruitment strategies.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="glass-card p-4 service-card hover-lift">
+
+                    <i class="bi bi-person-badge display-5 text-info"></i>
+
+                    <h4 class="mt-4">
+                        Executive Search
+                    </h4>
+
+                    <p>
+                        Identifying experienced professionals for leadership roles.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="glass-card p-4 service-card hover-lift">
+
+                    <i class="bi bi-graph-up-arrow display-5 text-info"></i>
+
+                    <h4 class="mt-4">
+                        HR Consulting
+                    </h4>
+
+                    <p>
+                        Strategic workforce planning and recruitment guidance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SERVICES SECTION  END-->
+<!-- FEATURES SECTION-->
+<section class="features-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-info fw-semibold">
+                Why Choose Us
+            </span>
+
+            <h2 class="section-title mt-2">
+                Powerful Recruitment Features
+            </h2>
+
+            <p class="section-subtitle">
+                A professional platform designed to connect employers
+                and candidates efficiently.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-lightning-charge-fill text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Fast Hiring
+                    </h5>
+
+                    <p>
+                        Reduce recruitment time with an efficient hiring process.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-shield-check text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Verified Profiles
+                    </h5>
+
+                    <p>
+                        Connect with trusted candidates and organizations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-bar-chart-fill text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Smart Solutions
+                    </h5>
+
+                    <p>
+                        Data-driven recruitment decisions for better results.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-headset text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Dedicated Support
+                    </h5>
+
+                    <p>
+                        Professional assistance throughout recruitment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FEATURES SECTION-->
 
 
 {% endblock %}

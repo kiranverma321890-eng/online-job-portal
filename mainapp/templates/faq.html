@@ -1,0 +1,374 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}FAQ | Galaxy Resources Pvt. Ltd.{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HEADER-->
+<section class="page-banner position-relative overflow-hidden">
+    <div class="container py-5">
+        <div class="row align-items-center min-vh-50">
+
+            <div class="col-lg-7">
+                <span class="badge bg-primary-subtle text-info px-3 py-2 rounded-pill mb-3">
+                    <i class="bi bi-patch-question-fill me-2"></i>
+                    Help Center
+                </span>
+
+                <h1 class="display-4 fw-bold text-white mb-3">
+                    Frequently Asked
+                    <span class="gradient-text">Questions</span>
+                </h1>
+
+                <p class="lead text-light opacity-75">
+                    Find quick answers about recruitment services,
+                    job applications, employer support, account
+                    management and more.
+                </p>
+            </div>
+
+            <div class="col-lg-5 text-center">
+                <div class="glass-card p-4">
+                    <i class="bi bi-chat-square-text display-1 text-info"></i>
+                    <h4 class="text-white mt-3">
+                        24/7 Support
+                    </h4>
+                    <p class="text-light opacity-75 mb-0">
+                        Our recruitment experts are always ready to help.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--SEARCH SECTION-->
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="glass-card p-4">
+
+                    <div class="input-group input-group-lg">
+
+                        <span class="input-group-text bg-transparent border-0">
+                            <i class="bi bi-search text-info"></i>
+                        </span>
+
+                        <input type="text" id="faqSearch" class="form-control border-0 shadow-none"
+                            placeholder="Search your question...">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FAQ CATEGORIES-->
+<section class="pb-5">
+
+    <div class="container">
+
+        <div class="row text-center g-4 mb-5">
+
+            <div class="col-md-3">
+
+                <div class="faq-category glass-card p-4">
+
+                    <i class="bi bi-person-workspace display-5 text-info mb-3"></i>
+
+                    <h5 class="text-white">
+                        Job Seekers
+                    </h5>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="faq-category glass-card p-4">
+
+                    <i class="bi bi-building display-5 text-info mb-3"></i>
+
+                    <h5 class="text-white">
+                        Employers
+                    </h5>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="faq-category glass-card p-4">
+
+                    <i class="bi bi-person-circle display-5 text-info mb-3"></i>
+
+                    <h5 class="text-white">
+                        Accounts
+                    </h5>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="faq-category glass-card p-4">
+
+                    <i class="bi bi-shield-check display-5 text-info mb-3"></i>
+
+                    <h5 class="text-white">
+                        Policies
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================
+     FAQ ACCORDION
+========================== -->
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10">
+
+                <div class="accordion accordion-flush" id="faqAccordion">
+
+                    <!-- FAQ 1 -->
+
+                    <div class="accordion-item faq-item glass-card mb-3">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqOne">
+
+                                How do I apply for a job?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faqOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Create your account, complete your profile,
+                                upload your resume and apply directly from
+                                our job listings.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 2 -->
+
+                    <div class="accordion-item faq-item glass-card mb-3">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqTwo">
+
+                                Is registration free?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Yes. Registration for job seekers is
+                                completely free.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 3 -->
+
+                    <div class="accordion-item faq-item glass-card mb-3">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqThree">
+
+                                Can employers post unlimited jobs?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Employers can choose plans based on
+                                their recruitment requirements.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 4 -->
+
+                    <div class="accordion-item faq-item glass-card mb-3">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqFour">
+
+                                How do I reset my password?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Visit the Login page and use the
+                                Forgot Password option to receive
+                                a password reset link.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 5 -->
+
+                    <div class="accordion-item faq-item glass-card mb-3">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqFive">
+
+                                How can I contact Galaxy Resources?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faqFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                You can contact us through our Contact page,
+                                email support or social media channels.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 6 -->
+
+                    <div class="accordion-item faq-item glass-card mb-3">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqSix">
+
+                                How long does recruitment take?
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faqSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Recruitment timelines depend on employer
+                                requirements, interview schedules and
+                                candidate availability.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SUPPORT CTA -->
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="glass-card text-center p-5">
+
+            <i class="bi bi-headset display-2 text-info mb-3"></i>
+
+            <h2 class="fw-bold text-white mb-3">
+
+                Still Need Help?
+
+            </h2>
+
+            <p class="text-light opacity-75 mb-4">
+
+                Our HR specialists are ready to answer all your
+                queries regarding recruitment and hiring.
+
+            </p>
+
+            <a href="{% url 'contact' %}" class="btn btn-info btn-lg px-5">
+
+                <i class="bi bi-envelope-fill me-2"></i>
+
+                Contact Support
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

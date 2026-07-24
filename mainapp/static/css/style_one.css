@@ -1,0 +1,351 @@
+
+/*HERO FLOATING BUBBLES */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, .35), rgba(6, 182, 212, .25));
+    filter: blur(1px);
+    animation: floatBubble 10s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.bubble-1 {
+    width: 180px;
+    height: 180px;
+    top: 15%;
+    left: 5%;
+}
+
+.bubble-2 {
+    width: 120px;
+    height: 120px;
+    right: 10%;
+    top: 25%;
+    animation-delay: 2s;
+}
+
+.bubble-3 {
+    width: 80px;
+    height: 80px;
+    bottom: 15%;
+    left: 30%;
+    animation-delay: 4s;
+}
+
+@keyframes floatBubble {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/*FAQ PAGE8*/
+.page-banner {
+    background: linear-gradient(135deg, #07152e, #0c2b57, #0e7490);
+    position: relative;
+}
+
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #38bdf8, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#faqSearch {
+    background: transparent;
+    color: #fff;
+}
+
+#faqSearch::placeholder {
+    color: #adb5bd;
+}
+
+.faq-category {
+    border-radius: 20px;
+    transition: .35s;
+    cursor: pointer;
+}
+
+.faq-category:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, .18);
+}
+
+.faq-item {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.faq-item .accordion-button {
+    background: rgba(255, 255, 255, .04);
+    color: #fff;
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    box-shadow: none;
+}
+
+.faq-item .accordion-button:not(.collapsed) {
+    background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+    color: #fff;
+}
+
+.faq-item .accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+.faq-item .accordion-body {
+    background: rgba(255, 255, 255, .03);
+    color: #cfd8dc;
+    line-height: 1.8;
+}
+
+.glass-card {
+    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 20px;
+    transition: .35s;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+}
+
+@media(max-width:768px) {
+    .page-banner {
+        text-align: center;
+    }
+
+    .page-banner h1 {
+        font-size: 2.3rem;
+    }
+
+    .faq-category {
+        margin-bottom: 1rem;
+    }
+}
+
+/*faq page css ended*/
+/* CONTACT PAGE */
+.contact-hero {
+    background: linear-gradient(180deg,
+            rgba(6, 12, 30, .9), transparent)
+}
+
+.contact-info-card {
+    transition: .3s ease
+}
+
+.contact-info-card:hover {
+    transform: translateY(-6px)
+}
+
+.contact-icon-wrap {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    font-size: 1.5rem;
+    color: #fff
+}
+
+.contact-form-section .form-label {
+    color: #cfd8e3;
+    font-weight: 500;
+    margin-bottom: .4rem
+}
+
+.contact-form-section .form-control,
+.contact-form-section .form-select {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .15);
+    color: #fff;
+    border-radius: 12px;
+    padding: .6rem .9rem
+}
+
+.contact-form-section .form-control:focus,
+.contact-form-section .form-select:focus {
+    background: rgba(255, 255, 255, .08);
+    border-color: #00c6ff;
+    box-shadow: 0 0 0 .2rem rgba(0, 198, 255, .2);
+    color: #fff
+}
+
+.contact-form-section .form-control::placeholder {
+    color: #8a94a6
+}
+
+.map-card {
+    border-radius: 20px
+}
+
+.contact-map {
+    width: 100%;
+    height: 260px;
+    border: 0;
+    filter: grayscale(30%) invert(90%) contrast(90%)
+}
+
+.social-icons-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px
+}
+
+.social-icon-circle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .15);
+    color: #fff;
+    transition: .3s ease
+}
+
+.social-icon-circle:hover {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    transform: translateY(-4px)
+}
+
+/*JOBS PAGE CSS*/
+.jobs-page {
+    padding: 80px 6%;
+    font-family:'Poppins',sans-serif;
+    background:var(--bg-dark);
+    color:var(--text-main);
+}
+
+.glass-card {
+    background:var(--bg-card);
+    backdrop-filter:blur(18px);
+    border:1px solid var(--border-glass);
+    border-radius:20px;
+}
+
+.jobs-hero {
+    text-align:center;
+    padding:45px 25px;
+    margin-bottom:25px;
+}
+
+.jobs-hero h1 {
+    font-size:40px;
+    margin:10px 0;
+}
+
+.jobs-hero h1 span {
+    background:linear-gradient(135deg,var(--accent-start),var(--accent-end));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.jobs-hero p {
+    max-width:650px;
+    margin:15px auto;
+    color:var(--text-muted);
+}
+
+.badge {
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:20px;
+    background:rgba(6,182,212,.15);
+    color:var(--accent);
+}
+
+.job-search {
+    display:flex;
+    gap:12px;
+    padding:18px;
+    margin-bottom:30px;
+}
+
+.job-search input,
+.job-search select {
+    flex:1;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.05);
+    color:white;
+}
+
+
+.primary-btn,
+.job-search button {
+    padding:12px 22px;
+    border:0;
+    border-radius:25px;
+    color:white;
+    cursor:pointer;
+    background:linear-gradient(135deg,var(--accent-start),var(--accent-end));
+}
+
+
+.jobs-grid {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(260px,1fr));
+    gap:20px;
+}
+
+
+.job-card {
+    padding:22px;
+    transition:.3s;
+}
+
+.job-card:hover {
+    transform:translateY(-5px);
+    border-color:var(--accent);
+}
+
+.job-header {
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+}
+
+.job-header h3 {
+    margin:0;
+    font-size:18px;
+}
+
+.job-header span {
+    color:var(--accent);
+    font-size:12px;
+}
+
+.company {
+    color:var(--accent);
+}
+
+.job-card p {
+    color:var(--text-muted);
+    margin:8px 0;
+}
+
+.job-card a {
+    display:inline-block;
+    margin-top:12px;
+    color:white;
+    text-decoration:none;
+}

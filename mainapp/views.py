@@ -12,6 +12,11 @@ def about(request):
 def contact(request):
     return render(request,'contact.html')
 
+def faq(request):
+    return render(request,'faq.html')
+def jobs(request):
+    return render(request,'jobs.html')
+
 def login(request):
     if request.method=="POST":
         username = request.POST.get("username")

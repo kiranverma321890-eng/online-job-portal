@@ -1,178 +1,494 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block main %}
-<!--RIPPLE BACKGROUND-->
-<div class="ripple-wrapper">
-    <div class="ripple-ring ring-1"></div>
-    <div class="ripple-ring ring-2"></div>
-    <div class="ripple-ring ring-3"></div>
-    <div class="ripple-ring ring-4"></div>
-</div>
-<!--DYNAMIC BACKGROUND ANIMATIONS-->
-<div class="bg-animation-container">
-    <canvas id="bg-animation"></canvas>
-    <div class="glow-blob blob-1"></div>
-    <div class="glow-blob blob-2"></div>
-    <div class="glow-blob blob-3"></div>
+{% block title %}Home | Galaxy Resources Pvt. Ltd.{% endblock %}
 
-    <div class="ripple-circle ripple-1"></div>
-    <div class="ripple-circle ripple-2"></div>
-    <div class="ripple-circle ripple-3"></div>
-    <div class="ripple-circle ripple-4"></div>
-</div>
-<!--BACKGROUND ANIMATION END-->
-<!-- Hero -->
+{% block content %}
 
-<section class="bg-light py-4">
-    <div class="container py-4">
-        <div class="row align-items-center">
+<!--HERO SECTION-->
 
-            <div class="col-lg-7">
-                <h1 class="display-5 fw-bold">
-                    Find Your Dream Job.<br>Build Your Future.
+<section class="hero-section position-relative overflow-hidden">
+
+    <div class="bubbles">
+        <span class="bubble bubble-1"></span>
+        <span class="bubble bubble-2"></span>
+        <span class="bubble bubble-3"></span>
+        <span class="bubble bubble-4"></span>
+    </div>
+
+    <div class="container position-relative" id="hero">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-7 text-center text-lg-start">
+                <span class="badge bg-primary px-3 py-2 rounded-pill mb-3">
+                    Trusted Recruitment Partner
+                </span>
+                <h1 class="display-3 fw-bold mb-4">
+                    Build Your Career With
+                    <span class="text-info">Galaxy Resources</span>
                 </h1>
-
-                <p class="text-secondary mt-3">
-                    Galaxy Resources Pvt. Ltd. connects job seekers with companies.
-                    Search jobs, apply online and manage your career easily.
+                <p class="lead text-light opacity-75 mb-4">
+                    Connecting talented professionals with leading companies.
+                    Discover opportunities, grow your career, and hire the
+                    right talent with confidence.
                 </p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                    <a href="{% url 'jobs'%}" class="btn btn-gradient btn-lg px-4">
+                        <i class="bi bi-search me-2"></i>
+                        Find Jobs
+                    </a>
 
-                <a href="#" class="btn btn-info me-2">Explore Jobs</a>
-                <a href="{% url 'register' %}" class="btn btn-warning">Register Now</a>
-            </div>
+                    <a href="{% url 'about' %}" class="btn btn-outline-light btn-lg px-4">
+                        Learn More
+                    </a>
 
-            <div class="col-lg-5 text-center mt-3">
-                <div class="bg-white shadow rounded-4 p-4">
-                    <h2 class="text-info">Galaxy Resources</h2>
-                    <p class="text-secondary">Connecting Talent With Opportunity</p>
-                    <i class="bi bi-briefcase display-3 text-warning"></i>
                 </div>
+
+            </div>
+
+            <!-- Right Card -->
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="glass-card p-4 hero-card">
+
+                    <h4 class="mb-4">
+                        <i class="bi bi-briefcase-fill text-info me-2"></i>
+                        Quick Overview
+                    </h4>
+
+                    <div class="row g-3">
+
+                        <div class="col-6">
+                            <div class="glass-card text-center p-3">
+                                <h2 class="fw-bold text-info">50+</h2>
+                                <small>Jobs Posted</small>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="glass-card text-center p-3">
+                                <h2 class="fw-bold text-info">30+</h2>
+                                <small>Companies</small>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="glass-card text-center p-3">
+                                <h2 class="fw-bold text-info">15K+</h2>
+                                <small>Candidates</small>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="glass-card text-center p-3">
+                                <h2 class="fw-bold text-info">98%</h2>
+                                <small>Success Rate</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
+
     </div>
+
 </section>
 
+<!--HERO SECTION END-->
 
-<!-- Stats -->
-<section class="bg-info text-white py-4">
+<!--  ABOUT PREVIEW SECTION STARTS-->
+<section class="about-preview">
+
     <div class="container">
-        <div class="row text-center">
 
-            {% for num,text in stats %}
-            <div class="col-md-3">
-                <h2 class="fw-bold">{{num}}</h2>
-                <p>{{text}}</p>
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="glass-card p-4">
+
+                    <span class="text-info fw-semibold">
+                        About Galaxy Resources
+                    </span>
+
+                    <h2 class="section-title mt-3">
+                        Connecting Talent With Opportunity
+                    </h2>
+
+                    <p class="section-subtitle text-start mt-3">
+                        Galaxy Resources Pvt. Ltd. provides professional
+                        recruitment solutions helping businesses discover
+                        skilled professionals and helping candidates find
+                        the right career opportunities.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <a href="{% url 'about' %}" class="btn btn-gradient rounded-pill px-4">
+
+                            Explore More
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
-            {% endfor %}
+
+
+            <div class="col-lg-6">
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card p-4 text-center hover-lift">
+
+                            <i class="bi bi-people-fill display-5 text-info"></i>
+
+                            <h5 class="mt-3">
+                                Expert Recruitment
+                            </h5>
+
+                            <p class="text-muted">
+                                Professional hiring solutions for modern businesses.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card p-4 text-center hover-lift">
+
+                            <i class="bi bi-building display-5 text-info"></i>
+
+                            <h5 class="mt-3">
+                                Corporate Hiring
+                            </h5>
+
+                            <p class="text-muted">
+                                Connecting organizations with skilled professionals.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card p-4 text-center hover-lift">
+
+                            <i class="bi bi-person-check-fill display-5 text-info"></i>
+
+                            <h5 class="mt-3">
+                                Career Growth
+                            </h5>
+
+                            <p class="text-muted">
+                                Helping candidates achieve professional success.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card p-4 text-center hover-lift">
+
+                            <i class="bi bi-award-fill display-5 text-info"></i>
+
+                            <h5 class="mt-3">
+                                Trusted Partner
+                            </h5>
+
+                            <p class="text-muted">
+                                Reliable recruitment support for companies.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
+
     </div>
+
 </section>
+<!--  ABOUT PREVIEW SECTION END-->
+
+<!-- FEATURES SECTION-->
+<section class="features-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title mt-2">
+                How We Works For You
+            </h2>
+            <span class="text-info fw-semibold">
+                We provide tailored job matching, career guidance, and recruitment services to help individuals and
+                companies grow together.
+            </span>
+
+        </div>
 
 
-<!-- Jobs -->
-<section class="bg-light py-4">
+        <div class="row g-4">
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-lightning-charge-fill text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Find The Right Job
+                    </h5>
+
+                    <p>
+                        Explore thousands of verified job opportunities that match your skills, experience, and career
+                        goals.
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-shield-check text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Research Companies
+                    </h5>
+
+                    <p>
+                        Learn more about companies, their career opportunities before applying their
+                        jobs
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-bar-chart-fill text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Compare Salaries
+                    </h5>
+
+                    <p>
+                        Compare salary packages across different job roles and industries to understand your market
+                        value.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                    <i class="bi bi-headset text-info display-5"></i>
+
+                    <h5 class="mt-4">
+                        Register An Account
+                    </h5>
+
+                    <p>
+                        Create your account to apply for jobs, upload your resume, and receive personalized job
+                        recommendations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FEATURES SECTION-->
+<!--STATISTICS SECTION-->
+<section class="statistics-section">
+
+
     <div class="container">
 
-        <h2 class="text-center fw-bold">Featured Jobs</h2>
-        <p class="text-center text-secondary">Latest opportunities from top companies</p>
 
-        <div class="row g-3 mt-3">
+        <div class="glass-card statistics-wrapper p-5">
 
-            {% for job in jobs %}
-            <div class="col-md-4">
-                <div class="card shadow border-0 h-100">
-                    <div class="card-body">
 
-                        <h4 class="text-info">{{job.title}}</h4>
-                        <p class="text-secondary">{{job.skills}}</p>
-                        <p>Location: {{job.location}}</p>
+            <div class="row g-4 text-center">
 
-                        <a href="#" class="btn btn-info">Apply Now</a>
 
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="stat-item">
+
+                        <i class="bi bi-briefcase-fill text-info display-6"></i>
+
+                        <h2 class="counter mt-3" data-target="500">
+                            0+
+                        </h2>
+
+                        <p>
+                            Jobs Posted
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="stat-item">
+
+                        <i class="bi bi-buildings-fill text-info display-6"></i>
+
+                        <h2 class="counter mt-3" data-target="300">
+                            0+
+                        </h2>
+
+                        <p>
+                            Partner Companies
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="stat-item">
+
+                        <i class="bi bi-people-fill text-info display-6"></i>
+
+                        <h2 class="counter mt-3" data-target="15000">
+                            0+
+                        </h2>
+
+                        <p>
+                            Candidates
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="stat-item">
+
+                        <i class="bi bi-trophy-fill text-info display-6"></i>
+                        <h2 class="counter mt-3" data-target="98">
+                            0%
+                        </h2>
+                        <p>
+                            Success Rate
+                        </p>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-
         </div>
     </div>
 </section>
+<!--STATISTICS SECTION END-->
 
+<section class="review-section">
 
-<!-- About -->
-<section class="bg-warning py-4">
-    <div class="container">
-        <div class="row">
+    <div class="review-box">
 
-            <div class="col-lg-6">
-                <h2 class="fw-bold">About Galaxy Resources</h2>
-                <p>
-                    A secure recruitment platform connecting organizations
-                    with talented professionals.
-                </p>
-            </div>
+        <div class="text-center mb-5">
 
-            <div class="col-lg-6">
-                <div class="bg-white shadow rounded p-3">
-                    <h5 class="text-info">Our Mission</h5>
-                    <p class="text-secondary">
-                        Create an efficient digital recruitment system.
-                    </p>
+            <h2 class="section-title mt-2">
+                Review Of The Users
+            </h2>
 
-                    <h5 class="text-info">Our Vision</h5>
-                    <p class="text-secondary">
-                        Become a trusted recruitment platform.
+            <span class="text-info fw-semibold">
+                Empowering careers and businesses through smart, reliable, and efficient hiring solutions.
+            </span>
+
+        </div>
+
+        <div class="review-wrapper">
+
+            <div class="review-track">
+
+                <div class="review-card">
+                    <h4>Amit Singh</h4>
+                    <span>HR Manager</span>
+                    <p>
+                        Smooth and transparent recruitment process.
                     </p>
                 </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 
 
-<!-- How It Works -->
-<section class="bg-light py-4">
-    <div class="container">
-
-        <h2 class="text-center fw-bold mb-3">How It Works</h2>
-
-        <div class="row g-3">
-
-            {% for step in steps %}
-            <div class="col-md-3">
-                <div class="card shadow border-0 text-center">
-                    <div class="card-body">
-
-                        <h2 class="text-info">{{step.number}}</h2>
-                        <h5>{{step.title}}</h5>
-                        <p class="text-secondary">{{step.desc}}</p>
-
-                    </div>
+                <div class="review-card">
+                    <h4>Priya Verma</h4>
+                    <span>Regional Director</span>
+                    <p>
+                        Genuine opportunities and professional guidance.
+                    </p>
                 </div>
+
+
+                <div class="review-card">
+                    <h4>Neha Kapoor</h4>
+                    <span>CFO</span>
+                    <p>
+                        Excellent hiring support and quality candidates.
+                    </p>
+                </div>
+
+
+                <div class="review-card">
+                    <h4>Rahul Sharma</h4>
+                    <span>CEO</span>
+                    <p>
+                        Professional recruitment experience.
+                    </p>
+                </div>
+
+
             </div>
-            {% endfor %}
 
         </div>
-    </div>
-</section>
-
-
-<!-- CTA -->
-<section class="bg-info text-white py-4">
-    <div class="container text-center">
-
-        <h2 class="fw-bold">Ready To Start Your Career?</h2>
-        <p>Join Galaxy Resources today.</p>
-
-        <a href="{% url 'register' %}" class="btn btn-warning">
-            Create Account
-        </a>
 
     </div>
+
 </section>
 
 {% endblock %}

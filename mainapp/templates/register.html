@@ -1,89 +1,107 @@
 {% extends 'base.html' %}
-
-{% block main %}
-
-<section class="bg-light min-vh-100 d-flex align-items-center py-5">
+{% block title %}Register - Galaxy Resources{% endblock %}
+{% block content %}
+<section class="auth-section py-5">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
-        
-        <div class="card border-0 shadow-sm rounded-4">
-          <div class="card-body p-4 p-sm-5">
-            
-            <!-- Header -->
-            <div class="text-center mb-4">
-              <h3 class="fw-bold text-dark mb-1">Create Account</h3>
-              <p class="text-secondary small mb-0">Join us to start finding or posting jobs</p>
-            </div>
-
-            <!-- Form -->
-            <form method="post" action="">
-              {% csrf_token %}
-
-              <div class="mb-3">
-                <label for="id_name" class="form-label small fw-medium text-secondary">Full Name</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  id="id_name" 
-                  class="form-control form-control-lg bg-light border-0 fs-6" 
-                  placeholder="John Doe" 
-                  required
-                >
-              </div>
-
-              <div class="mb-3">
-                <label for="id_email" class="form-label small fw-medium text-secondary">Email Address</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="id_email" 
-                  class="form-control form-control-lg bg-light border-0 fs-6" 
-                  placeholder="name@example.com" 
-                  required
-                >
-              </div>
-
-              <div class="mb-3">
-                <label for="id_password" class="form-label small fw-medium text-secondary">Password</label>
-                <input 
-                  type="password" 
-                  name="password" 
-                  id="id_password" 
-                  class="form-control form-control-lg bg-light border-0 fs-6" 
-                  placeholder="••••••••" 
-                  required
-                >
-              </div>
-
-              <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" id="terms" required>
-                <label class="form-check-label small text-secondary" for="terms">
-                  I agree to the <a href="#" class="text-primary text-decoration-none">Terms & Conditions</a>
-                </label>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold shadow-sm fs-6">
-                Register
-              </button>
-            </form>
-
-            <!-- Footer Link -->
-            <div class="text-center mt-4 pt-2 border-top">
-              <p class="text-secondary small mb-0">
-                Already have an account? 
-                <a href="{% url 'login' %}" class="text-primary fw-semibold text-decoration-none">
-                  Sign in
-                </a>
-              </p>
-            </div>
-
+      <div class="col-lg-6 col-md-8" data-aos="fade-up">
+        <div class="glass-card auth-card p-4 p-md-5">
+          <div class="text-center mb-4">
+            <div class="auth-icon-wrap mb-3"><i class="bi bi-person-plus-fill"></i></div>
+            <h3>Create Your Account</h3>
+            <p class="text-muted">Join Galaxy Resources and find your next opportunity</p>
           </div>
-        </div>
 
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-danger py-2">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+
+          <form method="post" action="{% url 'register' %}" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name</label>
+                <div class="input-icon-group">
+                  <i class="bi bi-person-fill"></i>
+                  <input type="text" class="form-control" name="full_name" required>
+                </div>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Email Address</label>
+                <div class="input-icon-group">
+                  <i class="bi bi-envelope-fill"></i>
+                  <input type="email" class="form-control" name="email" required>
+                </div>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <div class="input-icon-group">
+                  <i class="bi bi-telephone-fill"></i>
+                  <input type="tel" class="form-control" name="phone" pattern="[0-9]{10}" required>
+                </div>
+                <div class="invalid-feedback">Enter a valid 10-digit number.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Account Type</label>
+                <select class="form-select" name="account_type" required>
+                  <option value="" selected disabled>Select type</option>
+                  <option value="candidate">Job Seeker</option>
+                  <option value="employer">Employer</option>
+                </select>
+                <div class="invalid-feedback">Please select an account type.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Password</label>
+                <div class="input-icon-group password-group">
+                  <i class="bi bi-lock-fill"></i>
+                  <input type="password" class="form-control" name="password" id="regPassword" required minlength="8">
+                  <span class="toggle-password" data-target="regPassword"><i class="bi bi-eye-slash-fill"></i></span>
+                </div>
+                <div class="invalid-feedback">Minimum 8 characters required.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Confirm Password</label>
+                <div class="input-icon-group password-group">
+                  <i class="bi bi-lock-fill"></i>
+                  <input type="password" class="form-control" name="confirm_password" id="regConfirmPassword" required>
+                  <span class="toggle-password" data-target="regConfirmPassword"><i class="bi bi-eye-slash-fill"></i></span>
+                </div>
+                <div class="invalid-feedback" id="passwordMismatchMsg">Passwords do not match.</div>
+              </div>
+
+              <div class="col-12">
+                <div class="password-strength-bar mt-1">
+                  <div class="password-strength-fill" id="passwordStrengthFill"></div>
+                </div>
+                <small class="text-muted" id="passwordStrengthText">Password strength</small>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                  <label class="form-check-label text-muted small" for="agreeTerms">I agree to the Terms of Service and Privacy Policy</label>
+                  <div class="invalid-feedback">You must agree before continuing.</div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-gradient w-100 mb-3">Create Account <i class="bi bi-person-check ms-2"></i></button>
+                <p class="text-center text-muted mb-0">Already have an account? <a href="{% url 'login' %}" class="link-accent fw-semibold">Login Here</a></p>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 {% endblock %}
