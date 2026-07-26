@@ -11,8 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-  <!-- [Favicon] icon -->
-  <link rel="icon" href="" type="image/x-icon">
+ 
 
   <!-- data tables css -->
   <link rel="stylesheet" href="{% static 'admin/assets/css/plugins/dataTables.bootstrap5.min.css' %}">
@@ -31,7 +30,17 @@
   <!-- [Template CSS Files] -->
   <link rel="stylesheet" href="{% static 'admin/assets/css/style.css' %}" id="main-style-link">
   <link rel="stylesheet" href="{% static 'admin/assets/css/style-preset.css' %}">
-
+  <link rel="stylesheet" href="{% static 'admin/assets/css/style_admin.css' %}">
+  <link rel="stylesheet" href="{% static 'css/admindash.css' %}">
+  <link rel="icon" href="{% static 'images/profile/fav.png' %}">
+  <style>
+    .pc-navbar .pc-link,
+    .pc-navbar .pc-link *,
+    .pc-navbar .pc-caption label,
+    .pc-navbar .pc-caption i {
+      color: white ;
+    }
+  </style>
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
@@ -46,11 +55,15 @@
   <!-- [ Pre-loader ] End -->
   <!-- [ Sidebar Menu ] start -->
   <nav class="pc-sidebar">
-    <div class="navbar-wrapper">
+    <div class="navbar-wrapper" style="background: linear-gradient(135deg, rgba(8, 28, 58, .95), rgba(15, 47, 95, .85));
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    min-height: 90px;
+    padding: 0;">
       <div class="m-header">
-        <a href="{% url 'index' %}" class="b-brand text-primary">
+        <a href="{% url 'index' %}" class="b-brand text-primary fw-bold ">
           <!-- ========   Change your logo from here   ============ -->
-          HireHub
+          job Portal
         </a>
       </div>
       <div class="navbar-content">
@@ -58,39 +71,37 @@
           <li class="pc-item">
             <a href="{% url 'admindash' %}" class="pc-link">
               <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
-              <span class="pc-mtext">Dashboard</span>
+              <span class="pc-mtext" style="color:white">Dashboard</span>
             </a>
           </li>
 
           <li class="pc-item pc-caption">
-            <label>Manage</label>
+            <label style="color: white;">Manage</label>
             <i class="ti ti-dashboard"></i>
           </li>
 
           <!-- Categrories -->
           <li class="pc-item pc-hasmenu">
             <a href="#!" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
-              <span class="pc-mtext">Categories</span><span class="pc-arrow"><i
-                  data-feather="chevron-right"></i></span>
+              <span class="pc-micon" style="color: white;"><i class="ti ti-color-swatch"></i></span>
+              <span class="pc-mtext" style="color: white;">Job Seekers</span><span style="color: white;"
+                class="pc-arrow"><i data-feather="chevron-right"></i></span>
             </a>
-            <ul class="pc-submenu">
-              <li class="pc-item"><a class="pc-link" href="#">Add Category</a></li>
-              <li class="pc-item"><a class="pc-link" href="#">View Categories</a></li>
+            <ul class="pc-submenu" class="text-color">
+              <li class="pc-item"><a class="pc-link" href="{% url 'jobseeker' %}">View Job Seekers</a></li>
             </ul>
           </li>
 
 
           <!-- Jobs -->
-          <li class="pc-item pc-hasmenu">
+          <li class="pc-item pc-hasmenu" class="text-color">
             <a href="#!" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-users"></i></span>
-              <span class="pc-mtext">Users</span><span class="pc-arrow"><i
-                  data-feather="chevron-right"></i></span>
+              <span class="pc-micon" class="text-color"><i class="ti ti-users"></i></span>
+              <span class="pc-mtext">Jobs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span>
             </a>
             <ul class="pc-submenu">
-              <li class="pc-item"><a class="pc-link" href="#">Post Jobs</a></li>
-              <li class="pc-item"><a class="pc-link" href="#">Posted Jobs</a></li>
+              <li class="pc-item"><a class="pc-link" href="{% url 'postjob' %}">Post Jobs</a></li>
+              <li class="pc-item"><a class="pc-link" href="{% url 'postedjob' %}">Posted Jobs</a></li>
             </ul>
           </li>
 
@@ -100,8 +111,18 @@
               <span class="pc-mtext">Enquiries</span>
             </a>
           </li>
-          
-          
+          <li class="pc-item">
+            <a href="#" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-typography"></i></span>
+              <span class="pc-mtext">Feedback</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="#" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-typography"></i></span>
+              <span class="pc-mtext">Complaints</span>
+            </a>
+          </li>
           <li class="pc-item pc-caption">
             <label>Actions</label>
             <i class="ti ti-news"></i>
@@ -113,7 +134,7 @@
             </a>
           </li>
           <li class="pc-item">
-            <a href="#" class="pc-link">
+            <a href="{% url 'adminlogout' %}" class="pc-link">
               <span class="pc-micon"> <i class="ti ti-power"></i></span>
               <span class="pc-mtext">Logout</span>
             </a>
@@ -126,7 +147,7 @@
   </nav>
   <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
   <header class="pc-header">
-    <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
+    <div class="header-wrapper" > <!-- [Mobile Media Block] start -->
       <div class="me-auto pc-mob-drp">
         <ul class="list-unstyled">
           <!-- ======= Menu collapse Icon ===== -->
@@ -165,7 +186,7 @@
       <!-- [Mobile Media Block end] -->
       <div class="ms-auto">
         <ul class="list-unstyled">
-          
+
           <li class="dropdown pc-h-item header-user-profile">
             <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button"
               aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
@@ -187,7 +208,7 @@
                   <a href="#" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
                 </div>
               </div>
-              
+
               <div class="tab-content" id="mysrpTabContent">
                 <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1"
                   tabindex="0">
@@ -195,13 +216,13 @@
                     <i class="ti ti-lock"></i>
                     <span>Change Password</span>
                   </a>
-                  
-                  <a href="#" class="dropdown-item">
+
+                  <a href="{% url 'adminlogout' %}" class="dropdown-item">
                     <i class="ti ti-power"></i>
                     <span>Logout</span>
                   </a>
                 </div>
-                
+
               </div>
             </div>
           </li>
@@ -226,8 +247,9 @@
     <div class="footer-wrapper container-fluid">
       <div class="row">
         <div class="col-sm my-1">
-          <p class="m-0">Softpro India &#9829; developed by <a href="https://linkedin.com/in/er-asif"
-              target="_blank">Mohammad Asif</a>.</p>
+          Designed with 💖
+          <i class="bi bi-heart-fill text-danger"></i>
+          By Kiran Verma
         </div>
         <div class="col-auto my-1">
           <ul class="list-inline footer-link mb-0">
@@ -273,25 +295,25 @@
 
   <script src="{% static 'admin/assets/js/plugins/sweetalert2.all.min.js' %}"></script>
   {% if messages %}
-    {% for message in messages %}
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            }
-          });
-          Toast.fire({
-            icon: '{{message.tags}}',
-            title: '{{message}}'
-          });
-      </script>
-    {% endfor %}
+  {% for message in messages %}
+  <script>
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+    Toast.fire({
+      icon: '{{message.tags}}',
+      title: '{{message}}'
+    });
+  </script>
+  {% endfor %}
   {% endif %}
 </body>
 <!-- [Body] end -->

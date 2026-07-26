@@ -1,107 +1,169 @@
 {% extends 'base.html' %}
 {% block title %}Register - Galaxy Resources{% endblock %}
 {% block content %}
-<section class="auth-section py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-8" data-aos="fade-up">
-        <div class="glass-card auth-card p-4 p-md-5">
-          <div class="text-center mb-4">
-            <div class="auth-icon-wrap mb-3"><i class="bi bi-person-plus-fill"></i></div>
-            <h3>Create Your Account</h3>
-            <p class="text-muted">Join Galaxy Resources and find your next opportunity</p>
-          </div>
 
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-danger py-2">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
-
-          <form method="post" action="{% url 'register' %}" class="needs-validation" novalidate>
-            {% csrf_token %}
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Full Name</label>
-                <div class="input-icon-group">
-                  <i class="bi bi-person-fill"></i>
-                  <input type="text" class="form-control" name="full_name" required>
-                </div>
-                <div class="invalid-feedback">Please enter your name.</div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Email Address</label>
-                <div class="input-icon-group">
-                  <i class="bi bi-envelope-fill"></i>
-                  <input type="email" class="form-control" name="email" required>
-                </div>
-                <div class="invalid-feedback">Please enter a valid email.</div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Phone Number</label>
-                <div class="input-icon-group">
-                  <i class="bi bi-telephone-fill"></i>
-                  <input type="tel" class="form-control" name="phone" pattern="[0-9]{10}" required>
-                </div>
-                <div class="invalid-feedback">Enter a valid 10-digit number.</div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Account Type</label>
-                <select class="form-select" name="account_type" required>
-                  <option value="" selected disabled>Select type</option>
-                  <option value="candidate">Job Seeker</option>
-                  <option value="employer">Employer</option>
-                </select>
-                <div class="invalid-feedback">Please select an account type.</div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Password</label>
-                <div class="input-icon-group password-group">
-                  <i class="bi bi-lock-fill"></i>
-                  <input type="password" class="form-control" name="password" id="regPassword" required minlength="8">
-                  <span class="toggle-password" data-target="regPassword"><i class="bi bi-eye-slash-fill"></i></span>
-                </div>
-                <div class="invalid-feedback">Minimum 8 characters required.</div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Confirm Password</label>
-                <div class="input-icon-group password-group">
-                  <i class="bi bi-lock-fill"></i>
-                  <input type="password" class="form-control" name="confirm_password" id="regConfirmPassword" required>
-                  <span class="toggle-password" data-target="regConfirmPassword"><i class="bi bi-eye-slash-fill"></i></span>
-                </div>
-                <div class="invalid-feedback" id="passwordMismatchMsg">Passwords do not match.</div>
-              </div>
-
-              <div class="col-12">
-                <div class="password-strength-bar mt-1">
-                  <div class="password-strength-fill" id="passwordStrengthFill"></div>
-                </div>
-                <small class="text-muted" id="passwordStrengthText">Password strength</small>
-              </div>
-
-              <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="agreeTerms" required>
-                  <label class="form-check-label text-muted small" for="agreeTerms">I agree to the Terms of Service and Privacy Policy</label>
-                  <div class="invalid-feedback">You must agree before continuing.</div>
-                </div>
-              </div>
-
-              <div class="col-12">
-                <button type="submit" class="btn btn-gradient w-100 mb-3">Create Account <i class="bi bi-person-check ms-2"></i></button>
-                <p class="text-center text-muted mb-0">Already have an account? <a href="{% url 'login' %}" class="link-accent fw-semibold">Login Here</a></p>
-              </div>
-            </div>
-          </form>
+<section class="contact-hero mt-5 py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title mt-4">Create Your Account</h2>
+            <span class="text-info fw-semibold">
+                Join Galaxy Resources and find your next opportunity
+            </span>
         </div>
-      </div>
+
+        <div class="glass-card auth-card p-5">
+
+            {% if messages %}
+                {% for m in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show py-2" role="alert">
+                        {{ m }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+
+                <div class="row g-3">
+
+                    <!-- Name -->
+                    <div class="col-md-6">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="name" required>
+                        <div class="invalid-feedback">
+                            Please enter your name.
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-md-6">
+                        <label class="form-label">Gender</label>
+                        <select class="form-select" name="gender" required>
+                            <option value="" selected disabled>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select your gender.
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-md-6">
+                        <label class="form-label">Contact Number</label>
+                        <input type="tel"
+                               class="form-control"
+                               name="contactno"
+                               pattern="[0-9]{10}"
+                               required>
+                        <div class="invalid-feedback">
+                            Enter a valid 10-digit contact number.
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label class="form-label">Email Address</label>
+                        <input type="email"
+                               class="form-control"
+                               name="emailaddress"
+                               required>
+                        <div class="invalid-feedback">
+                            Enter a valid email address.
+                        </div>
+                    </div>
+
+                    <!-- Qualification -->
+                    <div class="col-md-6">
+                        <label class="form-label">Qualification</label>
+                        <input type="text"
+                               class="form-control"
+                               name="qualification"
+                               required>
+                        <div class="invalid-feedback">
+                            Please enter your qualification.
+                        </div>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="col-md-6">
+                        <label class="form-label">Experience</label>
+                        <input type="text"
+                               class="form-control"
+                               name="experience"
+                               required>
+                        <div class="invalid-feedback">
+                            Please enter your experience.
+                        </div>
+                    </div>
+
+                    <!-- Key Skills -->
+                    <div class="col-md-6">
+                        <label class="form-label">Key Skills</label>
+                        <input type="text"
+                               class="form-control"
+                               name="keyskill"
+                               required>
+                        <div class="invalid-feedback">
+                            Please enter your key skills.
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="col-md-6">
+                        <label class="form-label">Password</label>
+                        <div class="input-icon-group password-group">
+                            <input type="password"
+                                   class="form-control"
+                                   name="password"
+                                   id="regPassword"
+                                   minlength="8"
+                                   required>
+
+                            <span class="toggle-password" data-target="regPassword">
+                                <i class="bi bi-eye-slash-fill"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Address -->
+                    <div class="col-md-12">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-control"
+                                  name="address"
+                                  rows="3"
+                                  required></textarea>
+
+                        <div class="invalid-feedback">
+                            Please enter your address.
+                        </div>
+                    </div>
+
+                   
+                    <!-- Submit -->
+                    <div class="col-12">
+                        <button type="submit"
+                                class="btn btn-gradient w-100 mb-3">
+                            Create Account
+                            <i class="bi bi-person-check ms-2"></i>
+                        </button>
+
+                        <p class="text-center text-muted mb-0">
+                            Already have an account?
+                            <a href="{% url 'login' %}"
+                               class="link-accent fw-semibold">
+                                Login Here
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
     </div>
-  </div>
 </section>
+
 {% endblock %}

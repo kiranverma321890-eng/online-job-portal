@@ -47,38 +47,28 @@
           <form id="contactForm" class="needs-validation" novalidate method="post" action="{% url 'contact' %}">
             {% csrf_token %}
             <div class="row g-3">
-              <div class="col-md-6">
+              <div class="col-12">
                 <label class="form-label">Full Name</label>
-                <input type="text" class="form-control" name="full_name" required>
+                <input type="text" class="form-control" name="name" required>
                 <div class="invalid-feedback">Please enter your name.</div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-control" name="email" required>
-                <div class="invalid-feedback">Please enter a valid email.</div>
-              </div>
-              <div class="col-md-6">
+              <div class="col-12">
                 <label class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" name="phone" pattern="[0-9]{10}" required>
+                <input type="tel" class="form-control" name="contactno" pattern="[0-9]{10}" required>
                 <div class="invalid-feedback">Enter a valid 10-digit number.</div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Subject</label>
-                <select class="form-select" name="subject" required>
-                  <option value="" selected disabled>Choose subject</option>
-                  <option>Job Inquiry</option>
-                  <option>Employer Services</option>
-                  <option>General Query</option>
-                  <option>Support</option>
-                </select>
-                <div class="invalid-feedback">Please select a subject.</div>
+              <div class="col-12>
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" name="emailaddress" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
               </div>
+              
               <div class="col-12">
                 <label class="form-label">Message</label>
-                <textarea class="form-control" name="message" rows="4" required></textarea>
+                <textarea class="form-control" name="enquirytext" rows="4" required></textarea>
                 <div class="invalid-feedback">Please enter your message.</div>
               </div>
-              <div class="col-12">
+              <div class="col-12 mt-4">
                 <button type="submit" class="btn btn-gradient w-100">Send Message <i class="bi bi-send-fill ms-2"></i></button>
               </div>
             </div>
