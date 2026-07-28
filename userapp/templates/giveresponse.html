@@ -1,0 +1,162 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block main %}
+
+<style>
+.page-title {
+    color: #1C2740;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #E6EBF2;
+    border-radius: 50px 0 50px 0;
+    padding: 12px;
+    margin-bottom: 25px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(8,21,51,.08);
+}
+
+.feedback-card {
+    width: 65%;
+    margin: auto;
+    background: #FFFFFF;
+    border: 1px solid #E6EBF2;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(8,21,51,.08);
+    transition: .3s ease;
+}
+
+.feedback-card:hover {
+    border-color: #3FA9F5;
+    box-shadow: 0 12px 30px rgba(8,21,51,.16);
+    transform: translateY(-2px);
+}
+
+.feedback-table {
+    margin: 0;
+    border: none;
+}
+
+.feedback-table td {
+    border: none;
+    padding: 12px;
+    vertical-align: middle;
+    color: #1C2740;
+    font-weight: 500;
+}
+
+.form-control {
+    background: #F8FAFC;
+    border: 1px solid #D6DEE8;
+    color: #1C2740;
+    border-radius: 9px;
+    padding: 10px 12px;
+}
+
+.form-control:focus {
+    background: #FFFFFF;
+    color: #1C2740;
+    border-color: #3FA9F5;
+    box-shadow: 0 0 0 3px rgba(63,169,245,.12);
+}
+
+.form-control::placeholder {
+    color: #66738F;
+}
+
+.submit-btn {
+    background: #1D3970;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: .25s;
+}
+
+.submit-btn:hover {
+    background: #2F8FE0;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .feedback-card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .page-title {
+        font-size: 1.4rem;
+    }
+
+    .feedback-table td {
+        display: block;
+        width: 100%;
+        padding: 8px 5px;
+    }
+}
+</style>
+
+<h2 class="page-title">
+    SUBMIT YOUR FEEDBACK/COMPLAINT
+</h2>
+{% if messages %}
+    {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible fade show"
+            style="width:90%;margin:15px auto;padding:12px 18px;background:#FFF4D6;color:#664D03;border:1px solid #FFDA6A;border-radius:10px;font-weight:500;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <i class="bi bi-exclamation-circle-fill me-2"></i>
+            {{m}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="feedback-card">
+    <form class="form-group" method="post">
+        {% csrf_token %}
+
+```
+    <table class="table feedback-table">
+        <tr>
+            <td>Select Response Type</td>
+            <td>
+                <select name="responsetype" class="form-control">
+                    <option value="feed">Feedback</option>
+                    <option value="comp">Complaint</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Enter Subjects</td>
+            <td>
+                <input type="text" name="subject" class="form-control" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Enter Feedback /Complaint</td>
+            <td>
+                <textarea name="responsetext" required class="form-control" rows="5"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" class="submit-btn">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+```
+
+</div>
+
+{% endblock %}

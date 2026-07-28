@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import LoginInfo, JobSeeker, Enquiry
 from django.contrib import messages
-
+import datetime
 
 # Create your views here.
 def index(request):
@@ -16,7 +16,11 @@ def contact(request):
         contactno = request.POST.get("contactno")
         emailaddress = request.POST.get("emailaddress")
         enquirytext = request.POST.get("enquirytext")
-        
+        posteddate = datetime.date.today().strftime("%d/%m/%Y")
+        enq = Enquiry(name=name, contactno=contactno, emailaddress=emailaddress, enquirytext=enquirytext, posteddate=posteddate)
+        enq.save()
+        messages.success(request,"Message Sent Successfully")
+        return redirect('contact')
     return render(request,'contact.html')
 
 def faq(request):
@@ -37,8 +41,9 @@ def login(request):
                     request.session['adminid'] =user.username
                     return redirect("admindash")
                 elif user.usertype == 'jobseeker':
-                    messages.success(request, "Welcome job seeker")
-                    return redirect("login")
+                    #messages.success(request, "Welcome job seeker")
+                    request.session['userid']=user.username
+                    return redirect("userdash")
         except LoginInfo.DoesNotExist:
             messages.error(request, "Invalid username or password")
             return redirect("login")

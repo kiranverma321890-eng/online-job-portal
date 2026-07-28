@@ -9,12 +9,12 @@ body {
 }
 
 .page-title {
+    background: #FFFFFF;
     color: #1E3A5F;
     text-align: center;
-    background: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 50px 0 50px 0;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 25px;
     font-size: 1.8rem;
     font-weight: 700;
@@ -36,14 +36,14 @@ body {
     box-shadow: 0 12px 30px rgb(9, 36, 71);
 }
 
-.table {
+.complaint-table {
     color: #2D3748;
     margin: 0;
     border-collapse: separate;
     border-spacing: 0;
 }
 
-.table-css thead th {
+.complaint-table th {
     background: #F1F5F9;
     color: #1E3A5F;
     font-size: 15px;
@@ -53,22 +53,22 @@ body {
     white-space: nowrap;
 }
 
-.table-css tbody td {
+.complaint-table td {
     color: #2D3748;
     padding: 15px;
     border-bottom: 1px solid #E2E8F0;
     vertical-align: middle;
 }
 
-.table-css tbody tr {
+.complaint-table tbody tr {
     transition: .25s;
 }
 
-.table-css tbody tr:hover {
+.complaint-table tbody tr:hover {
     background: #F8FAFC;
 }
 
-.table-css tbody tr:last-child td {
+.complaint-table tbody tr:last-child td {
     border-bottom: none;
 }
 
@@ -76,7 +76,6 @@ body {
     text-align: center;
     color: #718096;
     padding: 30px;
-    font-size: 18px;
 }
 
 @media (max-width: 768px) {
@@ -88,42 +87,40 @@ body {
         padding: 15px;
     }
 
-    .table-css thead th,
-    .table-css tbody td {
+    .complaint-table th,
+    .complaint-table td {
         padding: 10px;
     }
 }
 </style>
 
-<h1 class="page-title">JOB SEEKER'S MANAGEMENT</h1>
+<h1 class="page-title">VIEW COMPLAINT</h1>
 
 <div class="table-glass">
-    <table class="table table-css">
+    <table class="table complaint-table">
         <thead>
             <tr>
-                <th>Sr.</th>
+                <th>Id</th>
                 <th>Name</th>
-                <th>Gender</th>
-                <th>Contact</th>
-                <th>Email Address</th>
-                <th>Qualification</th>
-                <th>Experience</th>
-                <th>Key Skills</th>
-                <th>Address</th>
+                <th>Contact No</th>
+                <th>Subject</th>
+                <th>Complaint</th>
+                <th>Posted Date</th>
             </tr>
         </thead>
         <tbody>
-            {% for j in js %}
+            {% for r in res %}
             <tr>
-                <td>{{forloop.counter}}</td>
-                <td>{{j.name}}</td>
-                <td>{{j.gender}}</td>
-                <td>{{j.contactno}}</td>
-                <td>{{j.emailaddress}}</td>
-                <td>{{j.qualification}}</td>
-                <td>{{j.experience}}</td>
-                <td>{{j.keyskill}}</td>
-                <td>{{j.address}}</td>
+                <td>{{r.id}}</td>
+                <td>{{r.name}}</td>
+                <td>{{r.contactno}}</td>
+                <td>{{r.subject}}</td>
+                <td>{{r.responsetext}}</td>
+                <td>{{r.posteddate}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="no-data">No complaints found</td>
             </tr>
             {% endfor %}
         </tbody>

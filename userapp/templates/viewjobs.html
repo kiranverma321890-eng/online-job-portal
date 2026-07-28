@@ -1,71 +1,66 @@
-{% extends 'adminbase.html' %}
+{% extends 'userbase.html' %}
 {% load static %}
-{% block admin %}
+{% block main %}
 
 <style>
-body {
-    background: #F5F7FA;
-    color: #2D3748;
-}
-
 .page-title {
-    color: #1E3A5F;
+    color: #1C2740;
     text-align: center;
     background: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    border: 1px solid #E6EBF2;
     border-radius: 50px 0 50px 0;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 25px;
     font-size: 1.8rem;
     font-weight: 700;
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    box-shadow: 0 4px 12px rgba(8,21,51,.08);
 }
 
 .table-glass {
     background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 20px;
+    border: 1px solid #E6EBF2;
+    border-radius: 16px;
     padding: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    box-shadow: 0 4px 12px rgba(8,21,51,.08);
     overflow-x: auto;
-    transition: .3s;
+    transition: .3s ease;
 }
 
 .table-glass:hover {
-    border-color: #4F9DDE;
-    box-shadow: 0 12px 30px rgb(9, 36, 71);
+    border-color: #3FA9F5;
+    box-shadow: 0 12px 30px rgba(8,21,51,.16);
 }
 
 .table {
-    color: #2D3748;
+    color: #1C2740;
     margin: 0;
     border-collapse: separate;
     border-spacing: 0;
 }
 
 .table-css thead th {
-    background: #F1F5F9;
-    color: #1E3A5F;
-    font-size: 15px;
+    background: #0C1F47;
+    color: #FFFFFF;
+    font-size: 14px;
     font-weight: 600;
-    padding: 15px;
-    border-bottom: 1px solid #D6DEE8;
+    padding: 14px;
+    border-bottom: 1px solid #E6EBF2;
     white-space: nowrap;
 }
 
 .table-css tbody td {
-    color: #2D3748;
-    padding: 15px;
-    border-bottom: 1px solid #E2E8F0;
+    color: #1C2740;
+    padding: 14px;
+    border-bottom: 1px solid #E6EBF2;
     vertical-align: middle;
 }
 
 .table-css tbody tr {
-    transition: .25s;
+    transition: .25s ease;
 }
 
 .table-css tbody tr:hover {
-    background: #F8FAFC;
+    background: #F2F5F9;
 }
 
 .table-css tbody tr:last-child td {
@@ -88,7 +83,7 @@ body {
 }
 </style>
 
-<h1 class="page-title">VIEW POSTED JOBS</h1>
+<h1 class="page-title">VIEW JOBS</h1>
 
 <div class="table-glass">
     <table class="table table-css">

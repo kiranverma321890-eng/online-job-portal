@@ -2,9 +2,7 @@
 {% load static %}
 {% block title %}Login - Galaxy Resources{% endblock %}
 {% block content %}
-
-<section class="auth-section d-flex align-items-center">
-  <div class="container">
+<section class="contact-hero py-5">
 
     <!-- Heading -->
     <div class="row justify-content-center mt-5">
@@ -22,19 +20,20 @@
     </div>
 
     <!-- Login Card -->
-    <div class="glass-card mx-auto p-4" style="max-width: 420px">
-      <div class="row g-0">
+    <div class="glass-card mx-auto p-4" style="max-width: 900px; max-height: 400px; ">
+      <div class="row align-items-center">
 
         <!-- Form -->
-          <div class="auth-form-pane p-4 d-flex flex-column justify-content-center h-100">
+        <div class="col-lg-6">
+          <div class="auth-form-pane p-4 d-flex flex-column justify-content-center h-100" style="margin-top:-80px">
 
             {% if messages %}
-              {% for m in messages %}
-                <div class="alert alert-warning alert-dismissible fade show py-2" role="alert">
-                  {{ m }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-              {% endfor %}
+            {% for m in messages %}
+            <div class="alert alert-warning alert-dismissible fade show py-2" role="alert">
+              {{ m }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
             {% endif %}
 
             <form method="post" class="needs-validation" novalidate>
@@ -44,15 +43,13 @@
                 <label for="id_username" class="form-label small fw-medium">
                   Username
                 </label>
+
                 <div class="input-icon-group">
                   <i class="bi bi-person-fill"></i>
-                  <input type="text"
-                         name="username"
-                         id="id_username"
-                         class="form-control"
-                         placeholder="johndoe"
-                         required>
+                  <input type="text" name="username" id="id_username" class="form-control" placeholder="johndoe"
+                    required>
                 </div>
+
                 <div class="invalid-feedback">
                   Please enter your username.
                 </div>
@@ -66,12 +63,8 @@
                 <div class="input-icon-group password-group">
                   <i class="bi bi-lock-fill"></i>
 
-                  <input type="password"
-                         name="password"
-                         id="id_password"
-                         class="form-control"
-                         placeholder="••••••••"
-                         required>
+                  <input type="password" name="password" id="id_password" class="form-control" placeholder="••••••••"
+                    required>
 
                   <span class="toggle-password" data-target="id_password">
                     <i class="bi bi-eye-slash-fill"></i>
@@ -83,7 +76,7 @@
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-gradient w-100 fw-semibold">
+              <button type="submit" class="btn btn-gradient w-100 fw-semibold mt-3">
                 Sign In
                 <i class="bi bi-box-arrow-in-right ms-2"></i>
               </button>
@@ -100,6 +93,13 @@
 
           </div>
         </div>
+
+
+        <!-- Image -->
+        <div class="col-lg-6" style="max-height:500px">
+          <img src="{% static 'images/l.jpg' %}" class="img-fluid page-img">
+        </div>
+
       </div>
     </div>
   </div>

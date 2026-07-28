@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from mainapp import views
 from adminapp.views import *
+from userapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,8 +32,20 @@ urlpatterns = [
     path('admindash/',admindash, name='admindash') , 
     path('adminlogout/',adminlogout, name='adminlogout'),
     path('faq/',views.faq, name='faq'),  
-    path('jobseeker',jobseeker, name="jobseeker"),
-    path('postjob',postjob, name="postjob"),
-    path('postedjob',postedjob, name="postedjob"),
+    path('jobseeker/',jobseeker, name="jobseeker"),
+    path('postjob/',postjob, name="postjob"),
+    path('postedjob/',postedjob, name="postedjob"),
+    path('enquiries/',enquiries, name="enquiries"),
+    path('changeadminpwd/',changeadminpwd, name="changeadminpwd"),
+    #userapp urls
+    path('userdash/',userdash,name='userdash'),
+    path('userlogout/',userlogout,name='userlogout'),
+    path('viewjobs/',viewjobs,name='viewjobs'),
+    path('changeuserpwd/',changeuserpwd, name="changeuserpwd"),
+    
+    path('giveresponse/',giveresponse, name="giveresponse"),
+    path('viewfeedback/',viewfeedback, name="viewfeedback"),
+    path('viewcomplaint/',viewcomplaint, name="viewcomplaint"),
+    path('deleteenq<id>/',deleteenq, name="deleteenq"),
       
 ]

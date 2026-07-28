@@ -1,97 +1,197 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Contact Us - Galaxy Resources{% endblock %}
-{% block content %}
-<section class="contact-hero mt-5 py-5">
-  <div class="container text-center" data-aos="fade-up">
-    <h1 class="section-title mt-5">Get In Touch</h1>
-    <p class="section-subtitle">We'd love to hear from you. Reach out and our team will respond shortly.</p>
-  </div>
-</section>
 
-<section class="contact-info-section py-4">
+{% block content %}
+
+<!-- Contact Hero Background Image -->
+<section class="contact-page-hero">
+  <div class="contact-page-overlay"></div>
+
   <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-        <div class="glass-card contact-info-card text-center p-4">
-          <div class="contact-icon-wrap mb-3"><i class="bi bi-geo-alt-fill"></i></div>
-          <h5>Our Address</h5>
-          <p class="text-muted mb-0">4th Floor, Tech Park Tower, Sector 62, Noida, UP 201301</p>
-        </div>
-      </div>
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="glass-card contact-info-card text-center p-4">
-          <div class="contact-icon-wrap mb-3"><i class="bi bi-telephone-fill"></i></div>
-          <h5>Call Us</h5>
-          <p class="text-muted mb-1">+91 98765 43210</p>
-          <p class="text-muted mb-0">+91 12345 67890</p>
-        </div>
-      </div>
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="glass-card contact-info-card text-center p-4">
-          <div class="contact-icon-wrap mb-3"><i class="bi bi-envelope-fill"></i></div>
-          <h5>Email Us</h5>
-          <p class="text-muted mb-1">careers@galaxyresources.com</p>
-          <p class="text-muted mb-0">support@galaxyresources.com</p>
-        </div>
-      </div>
+    <div class="contact-page-title text-center">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you. Get in touch with our team.</p>
     </div>
   </div>
 </section>
 
-<section class="contact-form-section py-5">
+
+<!-- Contact Form + Map -->
+<section class="contact-main-section">
   <div class="container">
-    <div class="row g-5 align-items-start">
+    <div class="row g-4 align-items-stretch">
+
+      <!-- Form -->
       <div class="col-lg-6" data-aos="fade-right">
-        <div class="glass-card p-4 p-md-5">
+        <div class="glass-card contact-form-card h-100">
+
           <h3 class="mb-4">Send Us a Message</h3>
-          <form id="contactForm" class="needs-validation" novalidate method="post" action="{% url 'contact' %}">
+
+          {% if messages %}
+          {% for m in messages %}
+          <div class="alert alert-warning alert-dismissible fade show py-2" role="alert">
+            {{ m }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+          {% endfor %}
+          {% endif %}
+
+          <form id="contactForm" class="needs-validation" novalidate method="post"
+            action="{% url 'contact' %}">
+
             {% csrf_token %}
-            <div class="row g-3">
+
+            <div class="row g-2">
+
               <div class="col-12">
                 <label class="form-label">Full Name</label>
                 <input type="text" class="form-control" name="name" required>
-                <div class="invalid-feedback">Please enter your name.</div>
+                <div class="invalid-feedback">
+                  Please enter your name.
+                </div>
               </div>
+
               <div class="col-12">
                 <label class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" name="contactno" pattern="[0-9]{10}" required>
-                <div class="invalid-feedback">Enter a valid 10-digit number.</div>
+                <input type="tel" class="form-control" name="contactno"
+                  pattern="[0-9]{10}" required>
+                <div class="invalid-feedback">
+                  Enter a valid 10-digit number.
+                </div>
               </div>
-              <div class="col-12>
+
+              <div class="col-12">
                 <label class="form-label">Email Address</label>
-                <input type="email" class="form-control" name="emailaddress" required>
-                <div class="invalid-feedback">Please enter a valid email.</div>
+                <input type="email" class="form-control"
+                  name="emailaddress" required>
+                <div class="invalid-feedback">
+                  Please enter a valid email.
+                </div>
               </div>
-              
+
               <div class="col-12">
                 <label class="form-label">Message</label>
-                <textarea class="form-control" name="enquirytext" rows="4" required></textarea>
-                <div class="invalid-feedback">Please enter your message.</div>
+                <textarea class="form-control" name="enquirytext"
+                  rows="5" required></textarea>
+                <div class="invalid-feedback">
+                  Please enter your message.
+                </div>
               </div>
+
               <div class="col-12 mt-4">
-                <button type="submit" class="btn btn-gradient w-100">Send Message <i class="bi bi-send-fill ms-2"></i></button>
+                <button type="submit" class="btn btn-gradient w-100">
+                  Send Message
+                  <i class="bi bi-send-fill ms-2"></i>
+                </button>
               </div>
+
             </div>
           </form>
-          <div id="formSuccessMsg" class="alert alert-success mt-3 d-none">Your message has been sent successfully!</div>
+
+          <div id="formSuccessMsg"
+            class="alert alert-success mt-3 d-none">
+            Your message has been sent successfully!
+          </div>
+
         </div>
       </div>
 
+
+      <!-- Map + Social -->
       <div class="col-lg-6" data-aos="fade-left">
+
+        <div class="glass-card contact-image-card mb-4"> <img src="{% static 'images/j.png' %}" alt="Galaxy Resources"> </div>
+
         <div class="glass-card map-card overflow-hidden mb-4">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d56961.38799284694!2d80.936771!3d26.837193!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfdba501b27d1%3A0x5146f3b7dcdd8d50!2sS-293%20Sahara%20Shopping%20Center%20Faizabad%20Road%20Lucknow%20226016!5e0!3m2!1sen!2sin!4v1784832091118!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d56961.38799284694!2d80.936771!3d26.837193!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfdba501b27d1%3A0x5146f3b7dcdd8d50!2sS-293%20Sahara%20Shopping%20Center%20Faizabad%20Road%20Lucknow%20226016!5e0!3m2!1sen!2sin!4v1784832091118!5m2!1sen!2sin"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
         </div>
-        <div class="glass-card p-4 text-center">
-          <h5 class="mb-3">Follow Us</h5>
-          <div class="social-icons-row">
-            <a href="https://www.facebook.com/grplindia2005?rdid=iXWwxNXZEgkUdBfh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BB1yHmhxK%2F#" class="social-icon-circle"><i class="bi bi-facebook"></i></a>
-            <a href="https://x.com/grplindia2005" class="social-icon-circle"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://www.linkedin.com/company/grpl-india/" class="social-icon-circle"><i class="bi bi-linkedin"></i></a>
-            <a href="youtube.com/@grplindia?si=ahUpsy6-Id3DHAI5" class="social-icon-circle"><i class="bi bi-youtube"></i></a>
-          </div>
+
         </div>
+
       </div>
+
     </div>
   </div>
 </section>
+
+
+<!-- Get In Touch -->
+<div class="container text-center get-touch-title" data-aos="fade-up">
+  <h2 class="section-title">Get In Touch</h2>
+</div>
+
+
+<!-- Contact Information -->
+<section class="contact-info-section py-4 mb-4">
+  <div class="container">
+
+    <div class="row g-4">
+
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="glass-card contact-info-card text-center p-4">
+
+          <div class="contact-icon-wrap mb-3">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+
+          <h5>Our Address</h5>
+
+          <p class="text-muted mb-0">
+            4th Floor, Tech Park Tower, Sector 62, Noida, UP 201301
+          </p>
+
+        </div>
+      </div>
+
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card contact-info-card text-center p-4">
+
+          <div class="contact-icon-wrap mb-3">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+
+          <h5>Call Us</h5>
+
+          <p class="text-muted mb-1">+91 98765 43210</p>
+          <p class="text-muted mb-0">+91 12345 67890</p>
+
+        </div>
+      </div>
+
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card contact-info-card text-center p-4">
+
+          <div class="contact-icon-wrap mb-3">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+
+          <h5>Email Us</h5>
+
+          <p class="text-muted mb-1">
+            careers@galaxyresources.com
+          </p>
+
+          <p class="text-muted mb-0">
+            support@galaxyresources.com
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 {% endblock %}

@@ -1,0 +1,187 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<style>
+body {
+    background: #F5F7FA;
+    color: #2D3748;
+}
+
+.page-title {
+    background: #FFFFFF;
+    text-align: center;
+    color: #1E3A5F;
+    border: 1px solid #E2E8F0;
+    border-radius: 50px 0 50px 0;
+    padding: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.table-glass {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    overflow-x: auto;
+}
+
+.glass-card:hover {
+    border-color: #4F9DDE;
+    box-shadow: 0 12px 30px rgb(9, 36, 71);
+    transform: translateY(-3px);
+}
+
+.enquiry-table {
+    color: #2D3748;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.enquiry-table thead th {
+    background: #F1F5F9;
+    color: #1E3A5F;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px;
+    border-bottom: 1px solid #D6DEE8;
+    white-space: nowrap;
+}
+
+.enquiry-table tbody td {
+    color: #2D3748;
+    padding: 15px;
+    border-bottom: 1px solid #E2E8F0;
+    vertical-align: middle;
+}
+
+.enquiry-table tbody tr {
+    transition: .25s;
+}
+
+.enquiry-table tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.enquiry-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.enquiry-table .text-info {
+    color: #4F9DDE !important;
+}
+
+.enquiry-table .text-success {
+    color: #2563EB !important;
+}
+
+.enquiry-table .text-warning {
+    color: #4F9DDE !important;
+}
+
+.enquiry-table .btn-danger {
+    border-radius: 7px;
+    padding: 5px 12px;
+}
+
+.no-data {
+    text-align: center;
+    color: #718096 !important;
+    padding: 30px !important;
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.4rem;
+    }
+
+    .table-glass {
+        padding: 15px;
+    }
+
+    .enquiry-table thead th,
+    .enquiry-table tbody td {
+        padding: 10px;
+    }
+}
+</style>
+
+<h2 class="page-title">
+    <i class="bi bi-envelope-fill me-2"></i>
+    VIEW ENQUIRIES
+</h2>
+
+{% if messages %}
+    {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible fade show"
+            style="width:90%;margin:15px auto;padding:12px 18px;background:#FFF4D6;color:#664D03;border:1px solid #FFDA6A;border-radius:10px;font-weight:500;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <i class="bi bi-exclamation-circle-fill me-2"></i>
+            {{m}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="table-glass">
+    <table class="table enquiry-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>Email Address</th>
+                <th>Enquiry Message</th>
+                <th>Posted Date</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+```
+    <tbody>
+        {% for e in enq %}
+        <tr>
+            <td>{{e.id}}</td>
+            <td>
+                <i class="bi bi-person-fill text-info me-2"></i>
+                {{e.name}}
+            </td>
+            <td>
+                <i class="bi bi-telephone-fill text-success me-2"></i>
+                {{e.contactno}}
+            </td>
+            <td>
+                <i class="bi bi-envelope-fill text-warning me-2"></i>
+                {{e.emailaddress}}
+            </td>
+            <td>{{e.enquirytext}}</td>
+            <td>{{e.posteddate}}</td>
+            <td>
+                <a href="{% url 'deleteenq' id=e.id %}">
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                </a>
+            </td>
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="7" class="no-data">
+                No enquiries found
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+```
+
+</div>
+
+{% endblock %}

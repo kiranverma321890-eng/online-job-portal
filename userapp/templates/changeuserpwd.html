@@ -1,0 +1,122 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block main %}
+
+<style>
+.page-title{
+    background:#F8FAFC;
+    text-align:center;
+    color:#1E3A5F;
+    border:1px solid #E2E8F0;
+    border-radius:50px 0 50px 0;
+    padding:12px;
+    font-weight:700;
+    letter-spacing:1px;
+    margin-bottom:30px;
+}
+
+.password-card{
+    width:55%;
+    margin:auto;
+    background:#FFFFFF;
+    border:1px solid #E2E8F0;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.3s ease;
+}
+
+.password-card:hover{
+    border-color:#4F9DDE;
+    box-shadow:0 12px 30px rgb(9,36,71);
+    transform:translateY(-3px);
+}
+
+.form-label{
+    color:#2D3748;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.form-control{
+    background:#F8FAFC;
+    border:1px solid #D6DEE8;
+    color:#2D3748;
+    border-radius:12px;
+    padding:12px 15px;
+}
+
+.form-control:focus{
+    background:#FFFFFF;
+    color:#2D3748;
+    border-color:#4F9DDE;
+    box-shadow:0 0 0 .2rem rgba(79,157,222,.20);
+}
+
+.form-control::placeholder{
+    color:#718096;
+}
+
+.password-btn{
+    background:linear-gradient(135deg,#4F9DDE,#1E3A5F);
+    color:#FFFFFF;
+    border:none;
+    padding:12px 35px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.password-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(79,157,222,.35);
+}
+</style>
+
+<h2 class="page-title">
+    <i class="bi bi-shield-lock-fill me-2"></i>
+    CHANGE ADMIN PASSWORD
+</h2>
+
+{% if messages %}
+    {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible fade show"
+            style="width:90%;margin:15px auto;padding:12px 18px;background:#FFF4D6;color:#664D03;border:1px solid #FFDA6A;border-radius:10px;font-weight:500;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <i class="bi bi-exclamation-circle-fill me-2"></i>
+            {{m}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="password-card">
+    <form method="post">
+        {% csrf_token %}
+
+```
+    <div class="mb-4">
+        <label class="form-label">Old Password</label>
+        <input type="password" name="oldpassword" class="form-control" placeholder="Enter old password" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label">New Password</label>
+        <input type="password" name="newpassword" class="form-control" placeholder="Enter new password" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm new password" required>
+    </div>
+
+    <div class="text-center mt-4">
+        <button type="submit" class="password-btn">
+            <i class="bi bi-key-fill me-2"></i>
+            Change Password
+        </button>
+    </div>
+</form>
+```
+
+</div>
+
+{% endblock %}

@@ -1,18 +1,32 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from mainapp.models import JobSeeker, LoginInfo
+from mainapp.models import JobSeeker, LoginInfo, Enquiry
 from . models import JobInfo
 import datetime
+from django.views.decorators.cache import cache_control
+from userapp.models import Response
 
 # Create your views here.
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def admindash(request):
     try:
         if request.session['adminid'] !=  None:
-            return render(request,'admindash.html')
+            total_jobs = JobInfo.objects.count()
+            total_seekers = JobSeeker.objects.count()
+            total_postedjob = JobSeeker.objects.count()
+            total_enquiry =Enquiry.objects.count()
+            return render(request,'admindash.html',
+                {
+                 "total_jobs" :total_jobs,
+                 "total_seekers" :total_seekers,
+                 "total_postedjob" :total_postedjob,
+                 "total_enquiry" :total_enquiry 
+                })
     except KeyError:
         messages.error(request,'Please Login')
         return redirect('login')
 
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def adminlogout(request):
     try:
         if request.session['adminid'] != None:
@@ -23,6 +37,7 @@ def adminlogout(request):
         messages.error(request,'Please Login')
         return redirect('login')
 
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def jobseeker(request):
     try:
         if request.session['adminid'] !=  None:
@@ -32,6 +47,7 @@ def jobseeker(request):
         messages.error(request,'Please Login')
         return redirect('login')
 
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def postjob(request):
     try:
         if request.session['adminid'] !=  None:
@@ -52,6 +68,7 @@ def postjob(request):
         messages.error(request,'Please Login')
         return redirect('login')
 
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def postedjob(request):
     try:
         if request.session['adminid'] !=  None:
@@ -61,4 +78,71 @@ def postedjob(request):
         messages.error(request,'Please Login')
         return redirect('login')
 
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def enquiries(request):
+    try:
+        if request.session['adminid'] !=  None:
+            enq=Enquiry.objects.all()
+            return render(request,'enquiries.html',{"enq":enq})
+    except KeyError:
+        messages.error(request,'Please Login')
+        return redirect('login')
 
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def changeadminpwd(request):
+    try:
+        if request.session['adminid'] !=  None:
+            if request.method == "POST":
+                oldpassword = request.POST.get("oldpassword")
+                newpassword = request.POST.get("newpassword")
+                confirmpassword = request.POST.get("confirmpassword")
+                if newpassword!=confirmpassword:
+                    messages.error(request,"Newpassword and Confirmpassword are not equal")
+                    return redirect("changeadminpwd")
+                try:
+                    LoginInfo.objects.get(username=request.session['adminid'],password=oldpassword)
+                    LoginInfo.objects.filter(username=request.session['adminid']).update(password=newpassword)
+                    messages.success(request,"Password is changed successfully")
+                    return redirect("adminlogout")
+                except LoginInfo.DoesNotExist:
+                    messages.error(request,"Old Password is Incorrect")
+                    return redirect("changeadminpwd")
+            return render(request,'changeadminpwd.html')
+    except KeyError:
+        messages.error(request,'Please Login')
+        return redirect('login')
+
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def viewfeedback(request):
+    try:
+        
+        if request.session['adminid'] !=  None:
+            res =Response.objects.filter(responsetype="feed")
+            return render(request,'viewfeedback.html',{"res":res})
+    except KeyError:
+        messages.error(request,'Please Login')
+        return redirect('login')
+
+
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def viewcomplaint(request):
+    try:
+        
+        if request.session['adminid'] !=  None:
+            res =Response.objects.filter(responsetype="comp")
+            return render(request,'viewcomplaint.html',{"res":res})
+    except KeyError:
+        messages.error(request,'Please Login')
+        return redirect('login')
+
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def deleteenq(request,id):
+    try:
+        if request.session['adminid'] !=  None:
+            enq = Enquiry.objects.get(id=id)
+            enq.delete()
+            messages.success(request,"Enquiry is deleted Successfully✅")
+            return render(request,'admindash.html')
+    except KeyError:
+        messages.error(request,'Please Login')
+        return redirect('login')

@@ -6,71 +6,41 @@
 {% block content %}
 
 <!--HERO SECTION-->
+<style>
 
-<section class="hero-section position-relative overflow-hidden">
+</style>
+<section class="hero">
 
-    <div class="container position-relative" id="hero">
-        <div class="row align-items-center min-vh-100">
-            <div class="col-lg-7 text-center text-lg-start">
-                <span class="badge bg-primary px-3 py-2 rounded-pill mb-3">
-                    Trusted Recruitment Partner
-                </span>
-                <h1 class="display-3 fw-bold mb-4">
-                    Build Your Career With
-                    <span class="text-info">Galaxy Resources</span>
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <h1>
+                    Find Your Dream Job
                 </h1>
-                <p class="lead text-light opacity-75 mb-4">
-                    Connecting talented professionals with leading companies.
-                    Discover opportunities, grow your career, and hire the
-                    right talent with confidence.
+
+                <p>
+                    Explore opportunities from trusted companies across India.
                 </p>
-                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-                    <a href="{% url 'jobs'%}" class="btn btn-gradient btn-lg px-4">
-                        <i class="bi bi-search me-2"></i>
-                        Find Jobs
-                    </a>
-                    <a href="{% url 'about' %}" class="btn btn-outline-light btn-lg px-4">
-                        Learn More
-                    </a>
-                </div>
+
+                <a href="{% url 'jobs' %}" class="btn btn-gradient me-3">
+                    Explore Jobs
+                </a>
+
+                <a href="{% url 'register' %}" class="btn btn-outline-light">
+                    Create Account
+                </a>
+
             </div>
-            <div class="col-lg-5 mt-5 mt-lg-0">
-                <div class="glass-card p-4 hero-card">
-                    <h4 class="mb-4">
-                        <i class="bi bi-briefcase-fill text-info me-2"></i>
-                        Quick Overview
-                    </h4>
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="glass-card text-center p-3">
-                                <h2 class="fw-bold text-info">50+</h2>
-                                <small>Jobs Posted</small>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="glass-card text-center p-3">
-                                <h2 class="fw-bold text-info">30+</h2>
-                                <small>Companies</small>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="glass-card text-center p-3">
-                                <h2 class="fw-bold text-info">15K+</h2>
-                                <small>Candidates</small>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="glass-card text-center p-3">
-                                <h2 class="fw-bold text-info">98%</h2>
-                                <small>Success Rate</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
+
     </div>
+
 </section>
+
 <!--HERO SECTION END-->
 
 <!--  ABOUT PREVIEW SECTION STARTS-->
@@ -204,117 +174,8 @@
 
 </section>
 <!--  ABOUT PREVIEW SECTION END-->
-
-<!-- FEATURES SECTION-->
-<section class="features-section">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title mt-2">
-                How We Works For You
-            </h2>
-            <span class="text-info fw-semibold">
-                We provide tailored job matching, career guidance, and recruitment services to help individuals and
-                companies grow together.
-            </span>
-
-        </div>
-
-
-        <div class="row g-4">
-
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="glass-card p-4 text-center hover-lift feature-card">
-
-                    <i class="bi bi-lightning-charge-fill text-info display-5"></i>
-
-                    <h5 class="mt-4">
-                        Find The Right Job
-                    </h5>
-
-                    <p>
-                        Explore thousands of verified job opportunities that match your skills, experience, and career
-                        goals.
-                    </p>
-
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-6">
-
-                <div class="glass-card p-4 text-center hover-lift feature-card">
-
-                    <i class="bi bi-shield-check text-info display-5"></i>
-
-                    <h5 class="mt-4">
-                        Research Companies
-                    </h5>
-
-                    <p>
-                        Learn more about companies, their career opportunities before applying their
-                        jobs
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="glass-card p-4 text-center hover-lift feature-card">
-
-                    <i class="bi bi-bar-chart-fill text-info display-5"></i>
-
-                    <h5 class="mt-4">
-                        Compare Salaries
-                    </h5>
-
-                    <p>
-                        Compare salary packages across different job roles and industries to understand your market
-                        value.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="glass-card p-4 text-center hover-lift feature-card">
-
-                    <i class="bi bi-headset text-info display-5"></i>
-
-                    <h5 class="mt-4">
-                        Register An Account
-                    </h5>
-
-                    <p>
-                        Create your account to apply for jobs, upload your resume, and receive personalized job
-                        recommendations.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-<!-- FEATURES SECTION-->
-
 <!--STATISTICS SECTION-->
-<section class="statistics-section">
-
-
-    <div class="container">
+ <div class="container mb-4">
 
 
         <div class="glass-card statistics-wrapper p-5">
@@ -399,8 +260,143 @@
             </div>
         </div>
     </div>
-</section>
 <!--STATISTICS SECTION END-->
+
+<!-- FEATURES SECTION-->
+<section class="features-section-hero">
+    <div class="contact-page-overlay"></div>
+    <div class="container">
+        <div class="contact-page-title text-center">
+            <h1 style="color:white;">How We Work For You</h1>
+            <h6>From creating your profile to applying for the right opportunity,
+                we keep your job search simple and organized.</h6>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row g-4">
+
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                <i class="bi bi-person-plus-fill text-info display-5"></i>
+
+                <h5 class="mt-4">
+                    Register
+                </h5>
+
+                <p>
+                    Create your job seeker account with your basic details,
+                    qualification, experience, and key skills.
+                </p>
+                <div class="mt-4">
+
+                    <a href="{% url 'register' %}" class="btn btn-gradient rounded-pill px-4">
+
+                        Register
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                <i class="bi bi-box-arrow-in-right text-info display-5"></i>
+
+                <h5 class="mt-4">
+                    Login
+                </h5>
+
+                <p>
+                    Sign in to your account and keep your job search
+                    information in one place.
+                </p>
+                <div class="mt-4">
+
+                    <a href="{% url 'login' %}" class="btn btn-gradient rounded-pill px-4">
+
+                        Login
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                <i class="bi bi-search text-info display-5"></i>
+
+                <h5 class="mt-4">
+                    Explore Jobs
+                </h5>
+
+                <p>
+                    Browse available jobs by role, location, salary,
+                    experience, and job type.
+                </p>
+                <div class="mt-4">
+
+                    <a href="{% url 'jobs' %}" class="btn btn-gradient rounded-pill px-4">
+
+                        Explore Jobs
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="glass-card p-4 text-center hover-lift feature-card">
+
+                <i class="bi bi-send-check-fill text-info display-5"></i>
+
+                <h5 class="mt-4">
+                    Apply
+                </h5>
+
+                <p>
+                    Find a suitable opening and submit your application
+                    to start your recruitment journey.
+                </p>
+                <div class="mt-4">
+
+                    <a href="{% url 'jobs' %}" class="btn btn-gradient rounded-pill px-4">
+
+                        Apply Jobs
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<!-- FEATURES SECTION-->
 
 <!--REVIEW SECTION-->
 <section class="review-section">

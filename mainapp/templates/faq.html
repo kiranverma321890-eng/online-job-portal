@@ -7,8 +7,8 @@
 
 <!-- PAGE HEADER-->
 <section class="page-banner position-relative overflow-hidden">
-    <div class="container py-5">
-        <div class="row align-items-center min-vh-50">
+    <div class="container">
+        <div class="row align-items-center min-vh-20"  style="margin-top: -20px;">
 
             <div class="col-lg-7">
                 <span class="badge bg-primary-subtle text-info px-3 py-2 rounded-pill mb-3">
@@ -29,15 +29,7 @@
             </div>
 
             <div class="col-lg-5 text-center">
-                <div class="glass-card p-4">
-                    <i class="bi bi-chat-square-text display-1 text-info"></i>
-                    <h4 class="text-white mt-3">
-                        24/7 Support
-                    </h4>
-                    <p class="text-light opacity-75 mb-0">
-                        Our recruitment experts are always ready to help.
-                    </p>
-                </div>
+               <img src="{% static 'images/b.jpg' %}" class="img-fluid page-img" alt="FAQ">
             </div>
 
         </div>
@@ -249,7 +241,9 @@
 
     <div class="container">
 
-        <div class="glass-card text-center p-5">
+        <div class="glass-card text-center p-5" style="background: linear-gradient(rgba(30, 58, 95, .92), rgba(79, 157, 222, .75)), url(../images/faq-banner.jpg);
+    background-size: cover;
+    background-position: center">
 
             <i class="bi bi-headset display-2 text-info mb-3"></i>
 
@@ -266,7 +260,7 @@
 
             </p>
 
-            <a href="{% url 'contact' %}" class="btn btn-info btn-lg px-5">
+            <a href="{% url 'contact' %}" class="btn btn-info btn-lg px-5" style="background-color: #1E3A5F; color:white">
 
                 <i class="bi bi-envelope-fill me-2"></i>
 

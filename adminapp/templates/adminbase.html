@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
- 
+
 
   <!-- data tables css -->
   <link rel="stylesheet" href="{% static 'admin/assets/css/plugins/dataTables.bootstrap5.min.css' %}">
@@ -31,234 +31,959 @@
   <link rel="stylesheet" href="{% static 'admin/assets/css/style.css' %}" id="main-style-link">
   <link rel="stylesheet" href="{% static 'admin/assets/css/style-preset.css' %}">
   <link rel="stylesheet" href="{% static 'admin/assets/css/style_admin.css' %}">
-  <link rel="stylesheet" href="{% static 'css/admindash.css' %}">
   <link rel="icon" href="{% static 'images/profile/fav.png' %}">
   <style>
     .pc-navbar .pc-link,
     .pc-navbar .pc-link *,
     .pc-navbar .pc-caption label,
     .pc-navbar .pc-caption i {
-      color: white ;
+      color: rgb(245, 238, 238);
+    }
+    .pc-navbar .pc-link,
+    .pc-navbar .pc-link *,
+    .pc-navbar .pc-caption label,
+    .pc-navbar .pc-caption i:hover {
+      color: rgb(245, 238, 238);
     }
   </style>
+  <!-- <link rel="stylesheet" href="../static/admin/assets/css/adminbase.css"> -->
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
-
+```html
 <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
-  <!-- [ Pre-loader ] start -->
+
+  <!-- =========================
+       PAGE CSS
+  ========================== -->
+  <style>
+
+    /* =========================
+       General
+    ========================== */
+
+    body {
+      background: #F5F7FA !important;
+      color: #2D3748;
+    }
+
+    .pc-container,
+    .pc-content {
+      background: #F5F7FA;
+    }
+
+
+    /* =========================
+       Pre-loader
+    ========================== */
+
+    .loader-bg {
+      background: #FFFFFF !important;
+    }
+
+    .loader-fill {
+      background: #4F9DDE !important;
+    }
+
+
+    /* =========================
+       Sidebar
+    ========================== */
+
+    .pc-sidebar {
+      background: #1E3A5F !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+      padding: 0 !important;
+      box-shadow: 3px 0 12px rgba(30, 58, 95, 0.08);
+    }
+
+    .pc-sidebar .m-header {
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .pc-sidebar .m-header .b-brand {
+      color: #FFFFFF !important;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+
+    /* =========================
+       Sidebar Menu
+    ========================== */
+
+    .pc-sidebar .pc-link {
+      color: rgba(255, 255, 255, 0.82) !important;
+      border-radius: 10px;
+      margin: 3px 10px;
+      transition: all 0.2s ease;
+    }
+
+    .pc-sidebar .pc-link:hover {
+      color: #FFFFFF !important;
+      background: rgba(79, 157, 222, 0.18);
+    }
+
+    .pc-sidebar .pc-micon {
+      color: inherit !important;
+    }
+
+    .pc-sidebar .pc-arrow {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+
+    /* =========================
+       Sidebar Active Item
+    ========================== */
+
+    .pc-sidebar .pc-item.active > .pc-link,
+    .pc-sidebar .pc-item .pc-link.active {
+      color: #FFFFFF !important;
+      background: #4F9DDE !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    }
+
+
+    /* =========================
+       Sidebar Captions
+    ========================== */
+
+    .pc-sidebar .pc-caption {
+      color: rgba(255, 255, 255, 0.52) !important;
+      padding-top: 18px;
+    }
+
+    .pc-sidebar .pc-caption label {
+      color: rgba(255, 255, 255, 0.55) !important;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+
+    /* =========================
+       Sidebar Submenu
+    ========================== */
+
+    .pc-sidebar .pc-submenu {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      margin: 2px 10px 6px;
+    }
+
+    .pc-sidebar .pc-submenu .pc-link {
+      color: rgba(255, 255, 255, 0.72) !important;
+      font-size: 13px;
+    }
+
+    .pc-sidebar .pc-submenu .pc-link:hover {
+      color: #FFFFFF !important;
+      background: rgba(79, 157, 222, 0.14);
+    }
+
+
+    /* =========================
+       Header
+    ========================== */
+
+    .pc-header {
+      background: #FFFFFF !important;
+    }
+
+    .pc-header .header-wrapper {
+      background: #FFFFFF !important;
+      border-bottom: 1px solid #D6DEE8 !important;
+      padding: 0 !important;
+      box-shadow: 0 2px 8px rgba(30, 58, 95, 0.05);
+    }
+
+    .pc-header .pc-head-link {
+      color: #1E3A5F !important;
+    }
+
+    .pc-header .pc-head-link:hover {
+      color: #2563EB !important;
+    }
+
+
+    /* =========================
+       Search
+    ========================== */
+
+    .header-search {
+      background: #F8FAFC;
+      border: 1px solid #D6DEE8;
+      border-radius: 10px;
+    }
+
+    .header-search .form-control {
+      background: transparent !important;
+      border: 0 !important;
+      color: #2D3748 !important;
+    }
+
+    .header-search .form-control::placeholder {
+      color: #718096;
+    }
+
+    .header-search .icon-search {
+      color: #718096;
+    }
+
+
+    /* =========================
+       User Profile
+    ========================== */
+
+    .header-user-profile .pc-head-link {
+      color: #1E3A5F !important;
+    }
+
+    .header-user-profile .pc-head-link span {
+      color: #2D3748;
+      font-weight: 500;
+    }
+
+    .user-avtar {
+      border: 2px solid #E2E8F0;
+    }
+
+
+    /* =========================
+       User Dropdown
+    ========================== */
+
+    .dropdown-user-profile {
+      background: #FFFFFF;
+      border: 1px solid #D6DEE8;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(30, 58, 95, 0.12);
+      overflow: hidden;
+    }
+
+    .dropdown-user-profile .dropdown-header {
+      background: #F8FAFC;
+      border-bottom: 1px solid #D6DEE8;
+    }
+
+    .dropdown-user-profile .dropdown-header h6 {
+      color: #1E3A5F !important;
+    }
+
+    .dropdown-user-profile .dropdown-header span {
+      color: #718096 !important;
+    }
+
+    .dropdown-user-profile .dropdown-item {
+      color: #2D3748;
+      border-radius: 7px;
+      margin: 3px 5px;
+      width: calc(100% - 10px);
+    }
+
+    .dropdown-user-profile .dropdown-item:hover {
+      color: #1E3A5F;
+      background: #F1F6FB;
+    }
+
+    .dropdown-user-profile .dropdown-item i {
+      color: #4F9DDE;
+    }
+
+
+    /* =========================
+       Common Glass Card
+    ========================== */
+
+    .glass-card {
+      background: #FFFFFF;
+      backdrop-filter: blur(18px);
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: #4F9DDE;
+      box-shadow: 0 12px 30px rgba(30, 58, 95, 0.12);
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================
+       Bootstrap Cards
+    ========================== */
+
+    .card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-header {
+      background: #FFFFFF;
+      color: #1E3A5F;
+      border-bottom: 1px solid #D6DEE8;
+      font-weight: 600;
+    }
+
+    .card-body {
+      color: #2D3748;
+    }
+
+
+    /* =========================
+       Buttons
+    ========================== */
+
+    .btn-primary {
+      background: #1E3A5F !important;
+      border-color: #1E3A5F !important;
+      color: #FFFFFF !important;
+    }
+
+    .btn-primary:hover {
+      background: #2563EB !important;
+      border-color: #2563EB !important;
+    }
+
+    .btn-info {
+      background: #4F9DDE !important;
+      border-color: #4F9DDE !important;
+      color: #FFFFFF !important;
+    }
+
+    .btn-info:hover {
+      background: #2563EB !important;
+      border-color: #2563EB !important;
+    }
+
+
+    /* =========================
+       Forms
+    ========================== */
+
+    .form-control,
+    .form-select {
+      background: #FFFFFF;
+      border: 1px solid #D6DEE8;
+      border-radius: 9px;
+      color: #2D3748;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #4F9DDE;
+      box-shadow: 0 0 0 3px rgba(79, 157, 222, 0.12);
+    }
+
+    .form-label {
+      color: #2D3748;
+      font-weight: 500;
+    }
+
+
+    /* =========================
+       Tables
+    ========================== */
+
+    .table {
+      color: #2D3748;
+    }
+
+    .table thead th {
+      background: #F1F5F9;
+      color: #1E3A5F;
+      border-bottom: 1px solid #D6DEE8;
+      font-weight: 600;
+    }
+
+    .table tbody td {
+      border-color: #D6DEE8;
+      vertical-align: middle;
+    }
+
+    .table tbody tr:hover {
+      background: #F8FAFC;
+    }
+
+
+    /* =========================
+       Links
+    ========================== */
+
+    a {
+      color: #2563EB;
+    }
+
+    a:hover {
+      color: #1E3A5F;
+    }
+
+
+    /* =========================
+       Badges
+    ========================== */
+
+    .badge.bg-primary {
+      background: #1E3A5F !important;
+    }
+
+    .badge.bg-info {
+      background: #4F9DDE !important;
+    }
+
+
+    /* =========================
+       Alerts
+    ========================== */
+
+    .alert {
+      border-radius: 10px;
+      border-width: 1px;
+    }
+
+
+    /* =========================
+       Page Headings
+    ========================== */
+
+    .pc-content h1,
+    .pc-content h2,
+    .pc-content h3,
+    .pc-content h4,
+    .pc-content h5,
+    .pc-content h6 {
+      color: #1E3A5F;
+    }
+
+
+    /* =========================
+       Mobile
+    ========================== */
+
+    @media (max-width: 991px) {
+
+      .pc-sidebar {
+        box-shadow: 5px 0 20px rgba(30, 58, 95, 0.12);
+      }
+
+      .pc-header .header-wrapper {
+        padding: 0 15px !important;
+      }
+
+    }
+
+  </style>
+
+
+  <!-- =========================
+       Pre-loader
+  ========================== -->
+
   <div class="loader-bg">
     <div class="loader-track">
       <div class="loader-fill"></div>
     </div>
   </div>
-  <!-- [ Pre-loader ] End -->
-  <!-- [ Sidebar Menu ] start -->
+
+
+  <!-- =========================
+       Sidebar Menu
+  ========================== -->
+
   <nav class="pc-sidebar">
-    <div class="navbar-wrapper" style="background: linear-gradient(135deg, rgba(8, 28, 58, .95), rgba(15, 47, 95, .85));
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-    min-height: 90px;
-    padding: 0;">
+
+    <div class="navbar-wrapper">
+
+      <!-- Logo -->
       <div class="m-header">
-        <a href="{% url 'index' %}" class="b-brand text-primary fw-bold ">
-          <!-- ========   Change your logo from here   ============ -->
+        <a href="{% url 'index' %}" class="b-brand text-primary fw-bold">
           job Portal
         </a>
       </div>
+
+
+      <!-- Sidebar Content -->
       <div class="navbar-content">
+
         <ul class="pc-navbar">
+
+
+          <!-- Dashboard -->
           <li class="pc-item">
+
             <a href="{% url 'admindash' %}" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
-              <span class="pc-mtext" style="color:white">Dashboard</span>
+
+              <span class="pc-micon">
+                <i class="ti ti-dashboard"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Dashboard
+              </span>
+
             </a>
+
           </li>
 
+
+          <!-- Manage Heading -->
           <li class="pc-item pc-caption">
-            <label style="color: white;">Manage</label>
+
+            <label>Manage</label>
+
             <i class="ti ti-dashboard"></i>
+
           </li>
 
-          <!-- Categrories -->
+
+          <!-- Job Seekers -->
           <li class="pc-item pc-hasmenu">
+
             <a href="#!" class="pc-link">
-              <span class="pc-micon" style="color: white;"><i class="ti ti-color-swatch"></i></span>
-              <span class="pc-mtext" style="color: white;">Job Seekers</span><span style="color: white;"
-                class="pc-arrow"><i data-feather="chevron-right"></i></span>
+
+              <span class="pc-micon">
+                <i class="ti ti-color-swatch"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Job Seekers
+              </span>
+
+              <span class="pc-arrow">
+                <i data-feather="chevron-right"></i>
+              </span>
+
             </a>
-            <ul class="pc-submenu" class="text-color">
-              <li class="pc-item"><a class="pc-link" href="{% url 'jobseeker' %}">View Job Seekers</a></li>
+
+            <ul class="pc-submenu">
+
+              <li class="pc-item">
+
+                <a class="pc-link" href="{% url 'jobseeker' %}">
+                  View Job Seekers
+                </a>
+
+              </li>
+
             </ul>
+
           </li>
 
 
           <!-- Jobs -->
-          <li class="pc-item pc-hasmenu" class="text-color">
+          <li class="pc-item pc-hasmenu">
+
             <a href="#!" class="pc-link">
-              <span class="pc-micon" class="text-color"><i class="ti ti-users"></i></span>
-              <span class="pc-mtext">Jobs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+
+              <span class="pc-micon">
+                <i class="ti ti-users"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Jobs
+              </span>
+
+              <span class="pc-arrow">
+                <i data-feather="chevron-right"></i>
+              </span>
+
             </a>
+
             <ul class="pc-submenu">
-              <li class="pc-item"><a class="pc-link" href="{% url 'postjob' %}">Post Jobs</a></li>
-              <li class="pc-item"><a class="pc-link" href="{% url 'postedjob' %}">Posted Jobs</a></li>
+
+              <li class="pc-item">
+
+                <a class="pc-link" href="{% url 'postjob' %}">
+                  Post Jobs
+                </a>
+
+              </li>
+
+              <li class="pc-item">
+
+                <a class="pc-link" href="{% url 'postedjob' %}">
+                  Posted Jobs
+                </a>
+
+              </li>
+
             </ul>
+
           </li>
 
+
+          <!-- Enquiries -->
           <li class="pc-item">
-            <a href="#" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-typography"></i></span>
-              <span class="pc-mtext">Enquiries</span>
+
+            <a href="{% url 'enquiries' %}" class="pc-link">
+
+              <span class="pc-micon">
+                <i class="ti ti-typography"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Enquiries
+              </span>
+
             </a>
+
           </li>
+
+
+          <!-- Feedback -->
           <li class="pc-item">
-            <a href="#" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-typography"></i></span>
-              <span class="pc-mtext">Feedback</span>
+
+            <a href="{% url 'viewfeedback' %}" class="pc-link">
+
+              <span class="pc-micon">
+                <i class="ti ti-users"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Feedback
+              </span>
+
             </a>
+
           </li>
+
+
+          <!-- Complaints -->
           <li class="pc-item">
-            <a href="#" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-typography"></i></span>
-              <span class="pc-mtext">Complaints</span>
+
+            <a href="{% url 'viewcomplaint' %}" class="pc-link">
+
+              <span class="pc-micon">
+                <i class="ti ti-typography"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Complaints
+              </span>
+
             </a>
+
           </li>
+
+
+          <!-- Actions Heading -->
           <li class="pc-item pc-caption">
+
             <label>Actions</label>
+
             <i class="ti ti-news"></i>
+
           </li>
+
+
+          <!-- Change Password -->
           <li class="pc-item">
-            <a href="#" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-lock"></i></span>
-              <span class="pc-mtext">Change Password</span>
+
+            <a href="{% url 'changeadminpwd' %}" class="pc-link">
+
+              <span class="pc-micon">
+                <i class="ti ti-lock"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Change Password
+              </span>
+
             </a>
+
           </li>
+
+
+          <!-- Logout -->
           <li class="pc-item">
+
             <a href="{% url 'adminlogout' %}" class="pc-link">
-              <span class="pc-micon"> <i class="ti ti-power"></i></span>
-              <span class="pc-mtext">Logout</span>
+
+              <span class="pc-micon">
+                <i class="ti ti-power"></i>
+              </span>
+
+              <span class="pc-mtext">
+                Logout
+              </span>
+
             </a>
+
           </li>
+
 
         </ul>
 
       </div>
+
     </div>
+
   </nav>
-  <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
+
+
+  <!-- =========================
+       Header
+  ========================== -->
+
   <header class="pc-header">
-    <div class="header-wrapper" > <!-- [Mobile Media Block] start -->
+
+    <div class="header-wrapper">
+
+
+      <!-- Left Side -->
       <div class="me-auto pc-mob-drp">
+
         <ul class="list-unstyled">
-          <!-- ======= Menu collapse Icon ===== -->
+
+
+          <!-- Sidebar Collapse -->
           <li class="pc-h-item pc-sidebar-collapse">
+
             <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+
               <i class="ti ti-menu-2"></i>
+
             </a>
+
           </li>
+
+
+          <!-- Mobile Sidebar -->
           <li class="pc-h-item pc-sidebar-popup">
+
             <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
+
               <i class="ti ti-menu-2"></i>
+
             </a>
+
           </li>
+
+
+          <!-- Mobile Search -->
           <li class="dropdown pc-h-item d-inline-flex d-md-none">
-            <a class="pc-head-link dropdown-toggle arrow-none m-0" data-bs-toggle="dropdown" href="#" role="button"
-              aria-haspopup="false" aria-expanded="false">
+
+            <a
+              class="pc-head-link dropdown-toggle arrow-none m-0"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="false"
+              aria-expanded="false">
+
               <i class="ti ti-search"></i>
+
             </a>
+
+
             <div class="dropdown-menu pc-h-dropdown drp-search">
+
               <form class="px-3">
+
                 <div class="form-group mb-0 d-flex align-items-center">
+
                   <i data-feather="search"></i>
-                  <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+
+                  <input
+                    type="search"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search here. . .">
+
                 </div>
+
               </form>
+
             </div>
+
           </li>
+
+
+          <!-- Desktop Search -->
           <li class="pc-h-item d-none d-md-inline-flex">
+
             <form class="header-search">
+
               <i data-feather="search" class="icon-search"></i>
-              <input type="search" class="form-control" placeholder="Search here. . .">
+
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search here. . .">
+
             </form>
+
           </li>
+
+
         </ul>
+
       </div>
-      <!-- [Mobile Media Block end] -->
+
+
+      <!-- Right Side -->
       <div class="ms-auto">
+
         <ul class="list-unstyled">
 
+
+          <!-- Admin Profile -->
           <li class="dropdown pc-h-item header-user-profile">
-            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button"
-              aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-              <img src="{% static 'admin/assets/images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar">
-              <span>Admin</span>
+
+            <a
+              class="pc-head-link dropdown-toggle arrow-none me-0"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="false"
+              data-bs-auto-close="outside"
+              aria-expanded="false">
+
+              <img
+                src="{% static 'admin/assets/images/user/avatar-2.jpg' %}"
+                alt="user-image"
+                class="user-avtar">
+
+              <span>
+                Admin
+              </span>
+
             </a>
+
+
+            <!-- User Dropdown -->
             <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
+
+
+              <!-- User Information -->
               <div class="dropdown-header">
+
                 <div class="d-flex mb-1">
+
+
+                  <!-- Avatar -->
                   <div class="flex-shrink-0">
-                    <img src="{% static 'admin/assets/images/user/avatar-2.jpg' %}" alt="user-image"
+
+                    <img
+                      src="{% static 'admin/assets/images/user/avatar-2.jpg' %}"
+                      alt="user-image"
                       class="user-avtar wid-35">
+
                   </div>
+
+
+                  <!-- Admin Details -->
                   <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Admin</h6>
-                    <span>{{adminid}}</span>
+
+                    <h6 class="mb-1">
+                      Admin
+                    </h6>
+
+                    <span>
+                      {{adminid}}
+                    </span>
+
                   </div>
-                  <!-- LOGOUT -->
-                  <a href="#" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
+
+
+                  <!-- Logout Icon -->
+                  <a
+                    href="{% url 'adminlogout' %}"
+                    class="pc-head-link bg-transparent">
+
+                    <i class="ti ti-power text-danger"></i>
+
+                  </a>
+
                 </div>
+
               </div>
 
-              <div class="tab-content" id="mysrpTabContent">
-                <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1"
+
+              <!-- Dropdown Menu -->
+              <div
+                class="tab-content"
+                id="mysrpTabContent">
+
+                <div
+                  class="tab-pane fade show active"
+                  id="drp-tab-1"
+                  role="tabpanel"
+                  aria-labelledby="drp-t1"
                   tabindex="0">
-                  <a href="#" class="dropdown-item">
+
+
+                  <!-- Change Password -->
+                  <a
+                    href="{% url 'changeadminpwd' %}"
+                    class="dropdown-item">
+
                     <i class="ti ti-lock"></i>
-                    <span>Change Password</span>
+
+                    <span>
+                      Change Password
+                    </span>
+
                   </a>
 
-                  <a href="{% url 'adminlogout' %}" class="dropdown-item">
+
+                  <!-- Logout -->
+                  <a
+                    href="{% url 'adminlogout' %}"
+                    class="dropdown-item">
+
                     <i class="ti ti-power"></i>
-                    <span>Logout</span>
+
+                    <span>
+                      Logout
+                    </span>
+
                   </a>
+
+
                 </div>
 
               </div>
+
             </div>
+
           </li>
+
         </ul>
+
       </div>
+
     </div>
+
   </header>
-  <!-- [ Header ] end -->
 
 
+  <!-- =========================
+       Main Content
+  ========================== -->
 
-  <!-- [ Main Content ] start -->
   <div class="pc-container">
+
     <div class="pc-content">
+
       {% block admin %}
 
       {% endblock %}
+
     </div>
+
   </div>
-  <!-- [ Main Content ] end -->
-  <footer class="pc-footer">
-    <div class="footer-wrapper container-fluid">
-      <div class="row">
-        <div class="col-sm my-1">
-          Designed with 💖
-          <i class="bi bi-heart-fill text-danger"></i>
-          By Kiran Verma
-        </div>
-        <div class="col-auto my-1">
-          <ul class="list-inline footer-link mb-0">
-            <li class="list-inline-item"><a href="../index.html">Home</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+
+</body>
+
 
   <!-- [Page Specific JS] start -->
   <script src="{% static 'admin/assets/js/plugins/apexcharts.min.js' %}"></script>
