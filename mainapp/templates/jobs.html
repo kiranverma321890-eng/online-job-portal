@@ -1,3 +1,4 @@
+```django
 {% extends 'base.html' %}
 {% load static %}
 
@@ -11,91 +12,69 @@
     <div class="container">
         <div class="contact-page-title text-center">
             <h1 style="color:#1E3A5F;">Career Opportunities</h1>
-            <h6> Find Your Dream Job With <span class="text-info">Galaxy Resource</span> </h6>
+            <h6>
+                Find Your Dream Job With
+                <span class="text-info">Galaxy Resource</span>
+            </h6>
         </div>
     </div>
 </section>
 
-<!-- Jobs -->
-<div class="container">
-    <div id="latest-jobs" class="jobs-grid">
-        <div class="job-card glass-card">
 
-            <div class="job-header">
-                <h3>Senior Java Developer</h3>
-                <span>Full Time</span>
+<section class="jobs-section py-5">
+
+    <div class="container">
+
+        <div id="latest-jobs" class="jobs-grid">
+
+            {% for j in ji %}
+
+            <div class="job-card glass-card">
+
+                <div class="job-header">
+                    <h3>{{ j.title }}</h3>
+                    <span>{{ j.jobtype }}</span>
+                </div>
+
+                <p class="company">
+                    Galaxy Resources Pvt. Ltd.
+                </p>
+
+                <p>
+                    📍 {{ j.location }}
+                </p>
+
+                <p>
+                    {{ j.description }}
+                </p>
+
+                <p>
+                    Salary: {{ j.salary }}
+                </p>
+
+                <p>
+                    Last Date: {{ j.lastdate }}
+                </p>
+
+                <a href="{% url 'applyjob' j.id %}">
+                    Apply Now →
+                </a>
+
             </div>
 
-            <p class="company">
-                ABM Knowledgeware Ltd
-            </p>
+            {% empty %}
 
-            <p>
-                📍 Mumbai <br>(Bandra)
-            </p>
-
-            <p>
-                Hiring Experienced Java Developers<br>
-                Salary Up to ₹12 LPA<br>
-                No of Vacancy - 2
-            </p>
-
-            <a
-                href="https://galaxyresource.in/job-details/senior-java-developer-jobs-in-mumbai-hiring-experienced-developers-salary-up-to-12-lpa">
-                Apply Now →
-            </a>
-
-        </div>
-        <div class="job-card glass-card">
-
-            <div class="job-header">
-                <h3>Customer Relationship Executive</h3>
-                <span>Full Time</span>
+            <div class="text-center">
+                <h4>No jobs available right now.</h4>
+                <p>Please check again later.</p>
             </div>
 
-            <p class="company">
-                Allview India Electronics Pvt. Ltd.
-            </p>
-
-            <p>
-                📍 Lucknow
-            </p>
-
-            <p>
-                harma Division <br>Freshers & Experienced Candidates Apply<br>No of Vacancy - 2
-            </p>
-
-            <a
-                href="https://galaxyresource.in/job-details/customer-relationship-executive-jobs-in-lucknow-pharma-division-freshers-amp-experienced-candidates-apply">
-                Apply Now →
-            </a>
+            {% endfor %}
 
         </div>
-        <div class="job-card glass-card">
 
-            <div class="job-header">
-                <h3>Computer Operator</h3>
-                <span>Full Time</span>
-            </div>
-
-            <p class="company">
-                Galaxy Resource Pvt. Ltd.
-            </p>
-
-            <p>
-                📍 Lucknow
-            </p>
-
-            <p>
-                Computer Operator<br> for Lucknow <br>with 1–3 years of <br>experience.
-            </p>
-
-            <a
-                href="https://galaxyresource.in/job-details/computer-operator-jobs-in-lucknow-salary-16000-fixed-experienced-candidates-apply">
-                Apply Now →
-            </a>
-
-        </div>
     </div>
-    </section>
-    {% endblock %}
+
+</section>
+
+{% endblock %}

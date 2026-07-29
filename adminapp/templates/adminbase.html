@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="{% static 'admin/assets/css/style.css' %}" id="main-style-link">
   <link rel="stylesheet" href="{% static 'admin/assets/css/style-preset.css' %}">
   <link rel="stylesheet" href="{% static 'admin/assets/css/style_admin.css' %}">
-  <link rel="icon" href="{% static 'images/profile/fav.png' %}">
+  <link rel="icon" href="{% static 'admin/assets/images/profile/fav1.png' %}">
   <style>
     .pc-navbar .pc-link,
     .pc-navbar .pc-link *,
@@ -52,11 +52,7 @@
 <!-- [Body] Start -->
 ```html
 <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
-
-  <!-- =========================
-       PAGE CSS
-  ========================== -->
-  <style>
+ <style>
 
     /* =========================
        General
@@ -190,7 +186,7 @@
        Header
     ========================== */
 
-    .pc-header {
+    /*.pc-header {
       background: #FFFFFF !important;
     }
 
@@ -208,11 +204,6 @@
     .pc-header .pc-head-link:hover {
       color: #2563EB !important;
     }
-
-
-    /* =========================
-       Search
-    ========================== */
 
     .header-search {
       background: #F8FAFC;
@@ -233,7 +224,7 @@
     .header-search .icon-search {
       color: #718096;
     }
-
+*/
 
     /* =========================
        User Profile
@@ -505,9 +496,12 @@
 
       <!-- Logo -->
       <div class="m-header">
-        <a href="{% url 'index' %}" class="b-brand text-primary fw-bold">
+        <img src="{% static 'admin/assets/images/profile/fav1.png' %}" alt="Galaxy Resources" height="20px" width="20px"/>
+        <a href="{% url 'index' %}" class="b-brand text-primary fw-bold" style="margin-left: 15px;">
           job Portal
         </a>
+        
+
       </div>
 
 
@@ -612,6 +606,13 @@
 
                 <a class="pc-link" href="{% url 'postedjob' %}">
                   Posted Jobs
+                </a>
+
+              </li>
+              <li class="pc-item">
+
+                <a class="pc-link" href="{% url 'appliedjob' %}">
+                  Applied Jobs
                 </a>
 
               </li>

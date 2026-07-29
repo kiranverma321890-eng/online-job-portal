@@ -1,0 +1,147 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block main %}
+
+<style>
+    :root {
+        --bg-dark: #F5F7FA;
+        --bg-card: #FFFFFF;
+        --border-glass: #E2E8F0;
+
+        --primary: #1E3A5F;
+        --secondary: #4F9DDE;
+
+        --accent: #2563EB;
+        --accent-start: #4F9DDE;
+        --accent-end: #1E3A5F;
+
+        --white: #FFFFFF;
+
+        --text-main: #2D3748;
+        --text-muted: #718096;
+
+        --border: #D6DEE8;
+        --glass: #F8FAFC;
+
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        --gradient-primary: linear-gradient(
+            135deg,
+            #4F9DDE,
+            #1E3A5F
+        );
+    }
+
+    body {
+        background: var(--bg-dark);
+        color: var(--text-main);
+    }
+
+    .page-title {
+        color: var(--primary);
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 25px;
+    }
+
+    .table-glass {
+        background: var(--bg-card);
+        border: 1px solid var(--border-glass);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    .table-css {
+        width: 100%;
+        margin: 0;
+        border-collapse: collapse;
+        background: var(--bg-card);
+    }
+
+    .table-css tr {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .table-css tr:last-child {
+        border-bottom: none;
+    }
+
+    .table-css td {
+        padding: 16px 20px;
+        color: var(--text-main);
+        vertical-align: middle;
+    }
+
+    .table-css td:first-child {
+        width: 30%;
+        background: var(--glass);
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .table-css td:last-child {
+        color: var(--text-main);
+    }
+
+    .table-css tr:hover {
+        background: #F8FAFC;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 24px;
+        }
+
+        .table-css td {
+            padding: 13px 15px;
+        }
+
+        .table-css td:first-child {
+            width: 40%;
+        }
+    }
+</style>
+
+<h1 class="page-title">View Profile</h1>
+<div class="table-glass table-responsive">
+    <table class="table table-css">
+        <tr>
+            <td>Name</td>
+            <td>{{ js.name }}</td>
+        </tr>
+
+        <tr>
+            <td>Contact No</td>
+            <td>{{ js.Contactno }}</td>
+        </tr>
+
+        <tr>
+            <td>Email Address</td>
+            <td>{{ js.emailaddress }}</td>
+        </tr>
+
+        <tr>
+            <td>Address</td>
+            <td>{{ js.address }}</td>
+        </tr>
+
+        <tr>
+            <td>Qualification</td>
+            <td>{{ js.qualification }}</td>
+        </tr>
+
+        <tr>
+            <td>Experience</td>
+            <td>{{ js.experience }}</td>
+        </tr>
+
+        <tr>
+            <td>Key Skills</td>
+            <td>{{ js.keyskills }}</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

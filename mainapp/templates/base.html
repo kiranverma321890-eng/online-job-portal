@@ -11,7 +11,7 @@
         Galaxy Resources Pvt. Ltd.
         {% endblock %}
     </title>
-    
+
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -25,12 +25,12 @@
         rel="stylesheet">
 
     <!-- Global CSS -->
-     <link rel="stylesheet" href="https://cloudflare.com"/>S
-     
+    <link rel="stylesheet" href="https://cloudflare.com" />
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/style_one.css' %}">
-    <link rel="icon" href="{% static 'images/fav.png' %}">
+    <link rel="icon" href="{% static 'images/fav1.png' %}" />
 
     {% block extra_css %}
     {% endblock %}
@@ -47,8 +47,7 @@
             <!-- Logo -->
 
             <a class="navbar-brand fw-bold" href="{% url 'index' %}">
-                <i class="bi bi-briefcase-fill text-info me-2"></i>
-
+                <img src="{% static 'images/fav1.png' %}" alt="Galaxy Resources" height="40px" width="40px" />
                 job Portal
 
             </a>
@@ -211,7 +210,7 @@
                     </h5>
 
                     <ul class="list-unstyled footer-links" style="color:whitesmoke">
- 
+
                         <li>Permanent Hiring</li>
 
                         <li>Executive Search</li>

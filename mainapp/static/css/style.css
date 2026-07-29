@@ -39,7 +39,25 @@ body{
     overflow-x:hidden;
 
 }
+.contact-page-hero {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-image: url("/static/images/o.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+#c{
+    
+    background-image: url("/static/images/1.jpg");
+    height:70px;
+    
 
+}
 .contact-page-overlay {
     position: absolute;
     inset: 0;
@@ -58,14 +76,18 @@ body{
 }
 
 .contact-page-title h1 {
-    color:navy;
+    color:rgba(var(--primary));
     font-size: 2.8rem;
     margin-bottom: 10px;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .contact-page-title p {
     color: #eef3f8;
     margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 /*JOBS PAGE IMG*/
 .jobs-page-hero {
@@ -132,12 +154,6 @@ body{
 
 }
 
-/* BUTTONS */
-.text-info{
-    --bs-text-opacity: 1;
-    color: rgba(var(--primary), var(--bs-text-opacity)) ;
-
-}
 .btn-gradient{
 
     background:var(--primary);
@@ -322,24 +338,19 @@ body{
     transform: translateY(-8px);
 }
 /*How we work for you*/
-.features-section-hero
+.feature-section-hero
 {
-     
-    position: relative;
+     position: relative;
     min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    background-image: url(/static/images/i.jpg);
+    background-image: url(css/images/d.jpg);
     background-size: cover;
     background-position: center;
     overflow: hidden;
 }
-.feature-page-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(12, 2, 46, 0.95), rgba(159, 205, 216, 0.979), rgba(180, 225, 250, 0.15));}
 /* RESPONSIVE */
 
 @media(max-width:991px) {
@@ -375,100 +386,26 @@ body{
 
 /*INDEX PAGE CSS STARTS*/
 /*hero css starts*/
-    .hero{
+.hero{
 
-    min-height:90vh;
+height:90vh;
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    background:
+background:
+linear-gradient(
+rgba(30,58,95,.75),
+rgba(79,157,222,.55)
+),
 
-    linear-gradient(
+url("../images/e.jpg");
 
-    rgba(30,58,95,.75),
+background-size:cover;
 
-    rgba(79,157,222,.45)
-
-    ),
-
-    url("../images/e.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
+background-position:center;
 }
-
-.hero h1{
-
-    color:#fff;
-
-    font-size:58px;
-
-    font-weight:700;
-
-}
-
-.hero p{
-
-    color:#F1F5F9;
-
-    font-size:20px;
-
-    margin:20px 0 35px;
-
-    max-width:520px;
-
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero-section{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    background:
-    linear-gradient(
-    rgba(30,58,95,.75),
-    rgba(30,58,95,.45)
-    ),
-    url("../images/e.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-}
-
-.hero-section h1{
-
-    color:#fff;
-
-    font-size:3.5rem;
-
-    font-weight:700;
-}
-
-.hero-section p{
-
-    color:#eef2f7;
-
-    font-size:1.1rem;
-
-    max-width:520px;
-
-    line-height:1.8;
-}
-
 /* ABOUT */
 
 .about-preview,
@@ -690,25 +627,6 @@ body{
 
 }
 
-.contact-hero{
-
-    min-height:100vh;
-
-    background:
-    linear-gradient(
-    rgba(30,58,95,.82),
-    rgba(79,157,222,.55)
-    ),
-    url("../images/g.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    padding-bottom:80px;
-
-}
-
 .contact-hero .section-title{
 
     color:#fff;
@@ -721,7 +639,7 @@ body{
 
 .contact-hero .text-info{
 
-    color:#EAF4FF !important;
+    color:#EAF4FF;
 
     font-size:17px;
 

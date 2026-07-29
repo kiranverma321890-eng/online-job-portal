@@ -4,24 +4,20 @@ from mainapp.models import JobSeeker, LoginInfo, Enquiry
 from . models import JobInfo
 import datetime
 from django.views.decorators.cache import cache_control
-from userapp.models import Response
+from userapp.models import Response, AppliedJob
 
 # Create your views here.
 @cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def admindash(request):
     try:
         if request.session['adminid'] !=  None:
-            total_jobs = JobInfo.objects.count()
-            total_seekers = JobSeeker.objects.count()
-            total_postedjob = JobSeeker.objects.count()
-            total_enquiry =Enquiry.objects.count()
-            return render(request,'admindash.html',
-                {
-                 "total_jobs" :total_jobs,
-                 "total_seekers" :total_seekers,
-                 "total_postedjob" :total_postedjob,
-                 "total_enquiry" :total_enquiry 
-                })
+            jscount = JobSeeker.objects.all().count()
+            enqcount =Enquiry.objects.all().count()
+            jobcount  = JobInfo.objects.all().count()
+            feedcount  = Response.objects.filter(responsetype="feed").count()
+            compcount  = Response.objects.filter(responsetype="comp").count()
+            ajcount  = AppliedJob.objects.all().count()
+            return render(request,'admindash.html',locals())
     except KeyError:
         messages.error(request,'Please Login')
         return redirect('login')
@@ -123,7 +119,6 @@ def viewfeedback(request):
         messages.error(request,'Please Login')
         return redirect('login')
 
-
 @cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def viewcomplaint(request):
     try:
@@ -142,7 +137,46 @@ def deleteenq(request,id):
             enq = Enquiry.objects.get(id=id)
             enq.delete()
             messages.success(request,"Enquiry is deleted Successfully✅")
+            return render(request,'enquiries.html')
+    except KeyError:
+        messages.error(request,'Please Login')
+        return redirect('login')
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def deleteresponse(request, id):
+    try:
+        if request.session['adminid'] != None:
+            res = Response.objects.get(id=id)
+            response_type = res.responsetype
+            res.delete()
+            messages.success(request, "Deleted successfully")
+
+            if response_type == "feed":
+                return redirect('viewfeedback')
+            return redirect('viewcomplaint')
+
+    except KeyError:
+        messages.error(request, 'Please Login')
+        return redirect('login')
+
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def deleteres(request,id):
+    try:
+        if request.session['adminid'] !=  None:
+            res = Response.objects.get(id=id)
+            res.delete()
+            messages.success(request,"Response is deleted Successfully✅")
             return render(request,'admindash.html')
+    except KeyError:
+        messages.error(request,'Please Login')
+        return redirect('login')
+
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def appliedjob(request):
+    try:
+        if request.session['adminid'] !=  None:
+            aj = AppliedJob.objects.all()
+            return render(request,'appliedjob.html',{"aj":aj})
     except KeyError:
         messages.error(request,'Please Login')
         return redirect('login')

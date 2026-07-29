@@ -8,7 +8,7 @@
 <!-- PAGE HEADER-->
 <section class="page-banner position-relative overflow-hidden">
     <div class="container">
-        <div class="row align-items-center min-vh-20"  style="margin-top: -20px;">
+        <div class="row align-items-center min-vh-20" style="margin-top: -20px;">
 
             <div class="col-lg-7">
                 <span class="badge bg-primary-subtle text-info px-3 py-2 rounded-pill mb-3">
@@ -28,8 +28,8 @@
                 </p>
             </div>
 
-            <div class="col-lg-5 text-center">
-               <img src="{% static 'images/b.jpg' %}" class="img-fluid page-img" alt="FAQ">
+            <div class="col-lg-5 text-center mt-4">
+                <img src="{% static 'images/b.jpg' %}" class="img-fluid page-img" alt="FAQ">
             </div>
 
         </div>
@@ -221,7 +221,7 @@
                                     requirements, interview schedules and
                                     candidate availability.
 
-                                </div>
+                                </div> 
 
                             </div>
 
@@ -231,46 +231,44 @@
 
                 </div>
 
-            </div>
+            </div><hr>
 
         </div>
 
 </section>
 <!-- SUPPORT CTA -->
-<section class="py-5">
+<section class="mt-0">
 
-    <div class="container">
+    <div class="container" style="margin-top: -130px;">
+        <div class="row">
+            <div class="col-6">
+                <div class="glass-card text-center py-4">
 
-        <div class="glass-card text-center p-5" style="background: linear-gradient(rgba(30, 58, 95, .92), rgba(79, 157, 222, .75)), url(../images/faq-banner.jpg);
-    background-size: cover;
-    background-position: center">
+                    <i class="bi bi-headset display-2 text-info mb-3"></i>
 
-            <i class="bi bi-headset display-2 text-info mb-3"></i>
+                    <h2 style="color:#1E3A5F;" class="fw-bold mb-3">
 
-            <h2 class="fw-bold text-white mb-3">
+                        Still Need Help?
 
-                Still Need Help?
+                    </h2>
+                    </p>
+                    <a href="{% url 'contact' %}" class="btn btn-info btn-lg px-5"
+                        style="background-color: #1E3A5F; color:white">
 
-            </h2>
+                        <i class="bi bi-envelope-fill me-2"></i>
 
-            <p class="text-light opacity-75 mb-4">
+                        Contact Support
 
-                Our HR specialists are ready to answer all your
-                queries regarding recruitment and hiring.
-
-            </p>
-
-            <a href="{% url 'contact' %}" class="btn btn-info btn-lg px-5" style="background-color: #1E3A5F; color:white">
-
-                <i class="bi bi-envelope-fill me-2"></i>
-
-                Contact Support
-
-            </a>
-
+                    </a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="contact-image-card mb-4"> <img src="{% static 'images/j.png' %}" style="width:630px; margin-top:20px; border-radius: 25px; height: 250px;"
+                        alt="Galaxy Resources"> </div>
+            </div>
         </div>
 
     </div>
-
+    </div>
 </section>
 {% endblock %}

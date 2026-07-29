@@ -91,33 +91,37 @@ body {
 }
 </style>
 
-<h1 class="page-title">VIEW POSTED JOBS</h1>
+<h1 class="page-title">VIEW APPLIED JOBS</h1>
 
 <div class="table-glass">
     <table class="table table-css">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Job Id</th>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Location</th>
-                <th>Salary</th>
-                <th>JobType</th>
-                <th>Last Date</th>
-                <th>Posted Date</th>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>Email Address</th>
+                <th>Qualification</th>
+                <th>Experience</th>
+                <th>Key Skill</th>
+                <th>Applied Date</th>
             </tr>
         </thead>
         <tbody>
-            {% for j in ji %}
+            {% for a in aj %}
             <tr>
-                <td>{{j.id}}</td>
-                <td>{{j.title}}</td>
-                <td>{{j.description}}</td>
-                <td>{{j.location}}</td>
-                <td>{{j.salary}}</td>
-                <td>{{j.jobtype}}</td>
-                <td>{{j.lastdate}}</td>
-                <td>{{j.posteddate}}</td>
+                <td>{{a.jobid}}</td>
+                <td>{{a.title}}</td>
+                <td>{{a.description}}</td>
+                <td>{{a.name}}</td>
+                <td>{{a.contactno}}</td>
+                <td>{{a.emailaddress}}</td>
+                <td>{{a.qualification}}</td>
+                <td>{{a.experience}}</td>
+                <td>{{a.keyskill}}</td>
+                <td>{{a.applieddate}}</td>
             </tr>
             {% endfor %}
         </tbody>

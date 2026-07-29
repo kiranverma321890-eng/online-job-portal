@@ -42,10 +42,13 @@ urlpatterns = [
     path('userlogout/',userlogout,name='userlogout'),
     path('viewjobs/',viewjobs,name='viewjobs'),
     path('changeuserpwd/',changeuserpwd, name="changeuserpwd"),
-    
     path('giveresponse/',giveresponse, name="giveresponse"),
     path('viewfeedback/',viewfeedback, name="viewfeedback"),
     path('viewcomplaint/',viewcomplaint, name="viewcomplaint"),
     path('deleteenq<id>/',deleteenq, name="deleteenq"),
+    path('deleteresponse<id>/',deleteresponse, name="deleteresponse"),
+    path('applyjob/<int:jobid>/',applyjob, name="applyjob"),
+    path('appliedjob/',appliedjob, name="appliedjob"),
+    path('userprofile/',userprofile, name="userprofile"),
       
 ]

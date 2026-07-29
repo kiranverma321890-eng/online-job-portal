@@ -8,6 +8,11 @@
         color: #2D3748;
     }
 
+    .table th,
+    .table td {
+        white-space: nowrap;
+    }
+
     .page-title {
         background: #FFFFFF;
         color: #1E3A5F;
@@ -96,6 +101,17 @@
 
 <h1 class="page-title">VIEW FEEDBACK</h1>
 
+{% if messages %}
+{% for m in messages %}
+<div class="alert alert-warning alert-dismissible fade show"
+    style="width:90%;margin:15px auto;padding:12px 18px;background:#FFF4D6;color:#664D03;border:1px solid #FFDA6A;border-radius:10px;font-weight:500;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+    <i class="bi bi-exclamation-circle-fill me-2"></i>
+    {{m}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endfor %}
+{% endif %}
+
 <div class="table-glass">
     <table class="table feedback-table">
         <thead>
@@ -106,6 +122,7 @@
                 <th>Subject</th>
                 <th>Feedback</th>
                 <th>Posted Date</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -117,14 +134,10 @@
                 <td>{{r.subject}}</td>
                 <td>{{r.responsetext}}</td>
                 <td>{{r.posteddate}}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td></td>
                 <td>
-                    <button type="submit" class="btn btn-success">
-                        Submit
-                    </button>
+                    <a href="{% url 'deleteresponse' id=r.id %}" class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
                 </td>
             </tr>
             {% endfor %}

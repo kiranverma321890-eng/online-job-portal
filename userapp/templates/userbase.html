@@ -14,6 +14,7 @@
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="{% static 'images/fav.png' %}">
 
   <style>
     :root {
@@ -630,119 +631,123 @@
 <body>
   <!-- SIDEBAR -->
 
-<aside class="sidebar" id="sidebar">
-    <div class="m-header">
-        <a href="{% url 'index' %}" class="b-brand text-primary fw-bold" style="font-size:20px;text-decoration:none;margin-top:100px;margin-left:50px;">
-            job Portal
-        </a>
+  <aside class="sidebar" id="sidebar">
+    <div class="m-header" style="margin-top: 13px;">
+      <img src="{% static 'admin/assets/images/profile/fav1.png' %}" alt="Galaxy Resources" height="20px"
+        width="20px"  style="margin-left: 15px;"/>
+      <a href="{% url 'index' %}" class="b-brand text-light fw-bold"
+        style="font-size:20px;text-decoration:none;margin-left:10px;">
+        job Portal
+      </a>
     </div>
 
-<nav class="sidebar-nav">
-    <div class="nav-section-label">Main</div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
 
-    <a href="{% url 'userdash' %}" class="nav-link active">
+      <a href="{% url 'userdash' %}" class="nav-link active">
         <i class="fa-solid fa-chart-line"></i>
         <span class="link-text">Dashboard</span>
-    </a>
+      </a>
 
-    <a href="{% url 'viewjobs' %}" class="nav-link">
+      <a href="{% url 'viewjobs' %}" class="nav-link">
         <i class="fa-solid fa-list-check"></i>
         <span class="link-text">View Jobs</span>
-    </a>
+      </a>
 
-    <a href="{% url 'giveresponse' %}" class="nav-link">
+      <a href="{% url 'giveresponse' %}" class="nav-link">
         <i class="fa-solid fa-envelope-open-text"></i>
         <span class="link-text">Response</span>
-    </a>
+      </a>
 
-    <div class="nav-section-label">Account</div>
+      <div class="nav-section-label">Account</div>
 
-    <a href="#" class="nav-link">
+      <a href="{% url 'userprofile' %}" class="nav-link">
         <i class="fa-solid fa-id-card"></i>
         <span class="link-text">View Profile</span>
-    </a>
+     </a>
 
-    <a href="{% url 'changeuserpwd' %}" class="nav-link">
+      <a href="{% url 'changeuserpwd' %}" class="nav-link">
         <i class="fa-solid fa-key"></i>
         <span class="link-text">Change Password</span>
-    </a>
+      </a>
 
-    <a href="{% url 'userlogout' %}" class="nav-link">
+      <a href="{% url 'userlogout' %}" class="nav-link">
         <i class="fa-solid fa-right-from-bracket"></i>
         <span class="link-text">Logout</span>
-    </a>
-</nav>
+      </a>
+    </nav>
 
-<div class="logout-box">
-    <a href="#" class="nav-link mb-0">
+   <!--<div class="logout-box">
+      <a href="#" class="nav-link mb-0">
         <i class="fa-solid fa-circle-question"></i>
         <span class="link-text">Help &amp; Support</span>
-    </a>
-</div>
-```
+      </a>
+    </div>-->
 
-</aside>
+  </aside>
 
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<div class="main-wrapper" id="mainWrapper">
+  <div class="main-wrapper" id="mainWrapper">
     <header class="topbar">
-        <div class="d-flex align-items-center">
-            <button class="toggle-btn" id="sidebarToggle" aria-label="Toggle sidebar">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <h5 class="page-title d-none d-sm-block">Dashboard</h5>
-        </div>
+      <div class="d-flex align-items-center">
+        <button class="toggle-btn" id="sidebarToggle" aria-label="Toggle sidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h5 class="page-title d-none d-sm-block">Dashboard</h5>
+      </div>
 
-```
-    <div class="search-box d-none d-md-flex">
+      <div class="search-box d-none d-md-flex">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Search jobs, candidates...">
-    </div>
+      </div>
 
-    <div class="d-flex align-items-center gap-2">
+      <div class="d-flex align-items-center gap-2">
         <button class="icon-btn d-none d-sm-flex">
-            <i class="fa-regular fa-bell"></i>
-            <span class="dot"></span>
+          <i class="fa-regular fa-bell"></i>
+          <span class="dot"></span>
         </button>
 
         <div class="dropdown">
-            <button class="profile-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="--bs-toggle-caret:none;">
-                <div class="profile-avatar">JS</div>
-                <div class="name-block d-none d-sm-block">
-                    <div class="name">{{js.name}}</div>
-                    <div class="role">Job Seeker</div>
-                </div>
-            </button>
+          <button class="profile-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+            style="--bs-toggle-caret:none;">
+            <div class="profile-avatar">JS</div>
+            <div class="name-block d-none d-sm-block">
+              <div class="name">{{js.name}}</div>
+              <div class="role">Job Seeker</div>
+            </div>
+          </button>
 
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
-                <li>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-user"></i> Profile
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'changeuserpwd' %}">
-                        <i class="fa-solid fa-key"></i> Change Password
-                    </a>
-                </li>
-                <li><hr class="dropdown-divider"></li>
-                <li>
-                    <a class="dropdown-item text-danger" href="{% url 'userlogout' %}">
-                        <i class="fa-solid fa-right-from-bracket"></i> Logout
-                    </a>
-                </li>
-            </ul>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
+            <!--<li>
+              <a class="dropdown-item" href="#">
+                <i class="fa-solid fa-user"></i> Profile
+              </a>
+            </li>
+            <li>-->
+              <a class="dropdown-item" href="{% url 'changeuserpwd' %}">
+                <i class="fa-solid fa-key"></i> Change Password
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item text-danger" href="{% url 'userlogout' %}">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+              </a>
+            </li>
+          </ul>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
 
-<main class="content">
-    {% block main %}
-    {% endblock %}
-</main>
+    <main class="content">
+      {% block main %}
+      {% endblock %}
+    </main>
 
-</div>
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>

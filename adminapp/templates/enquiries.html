@@ -52,7 +52,10 @@ body {
     border-bottom: 1px solid #D6DEE8;
     white-space: nowrap;
 }
-
+.table th,
+.table td{
+    white-space:nowrap;
+}
 .enquiry-table tbody td {
     color: #2D3748;
     padding: 15px;
@@ -144,8 +147,6 @@ body {
                 <th>Delete</th>
             </tr>
         </thead>
-
-```
     <tbody>
         {% for e in enq %}
         <tr>
@@ -170,18 +171,9 @@ body {
                 </a>
             </td>
         </tr>
-
-        {% empty %}
-        <tr>
-            <td colspan="7" class="no-data">
-                No enquiries found
-            </td>
-        </tr>
         {% endfor %}
     </tbody>
 </table>
-```
-
 </div>
 
 {% endblock %}

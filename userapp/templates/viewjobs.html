@@ -38,6 +38,10 @@
     border-spacing: 0;
 }
 
+.table th,
+.table td{
+    white-space:nowrap;
+}
 .table-css thead th {
     background: #0C1F47;
     color: #FFFFFF;
@@ -84,8 +88,17 @@
 </style>
 
 <h1 class="page-title">VIEW JOBS</h1>
-
-<div class="table-glass">
+{% if messages %}
+    {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible fade show"
+            style="width:90%;margin:15px auto;padding:12px 18px;background:#FFF4D6;color:#664D03;border:1px solid #FFDA6A;border-radius:10px;font-weight:500;box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <i class="bi bi-exclamation-circle-fill me-2"></i>
+            {{m}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="table-glass table-responsive">
     <table class="table table-css">
         <thead>
             <tr>
@@ -97,6 +110,8 @@
                 <th>JobType</th>
                 <th>Last Date</th>
                 <th>Posted Date</th>
+                <th>Apply</th>
+
             </tr>
         </thead>
         <tbody>
@@ -110,6 +125,9 @@
                 <td>{{j.jobtype}}</td>
                 <td>{{j.lastdate}}</td>
                 <td>{{j.posteddate}}</td>
+                <td><a href="{% url 'applyjob' jobid=j.id %}">
+                    <button type="submit" class="btn btn-sm" style="background-color: #0C1F47; color:white; padding:5px;font-weight: 700;"> Apply</button>
+                </a></td>
             </tr>
             {% endfor %}
         </tbody>

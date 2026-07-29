@@ -243,7 +243,7 @@
 
     max-width:420px;
 
-    border-radius:55% 45% 60% 40% /
+    border-radius:45% 45% 40% 40% /
                   45% 60% 40% 55%;
 
     box-shadow:var(--shadow);
@@ -263,7 +263,7 @@
 
     width:100%;
 
-    border-radius:55% 65% 60% 60%/
+    border-radius:45% 55% 60% 60%/
                   45% 60% 40% 55%;
 
     transition:.4s;

@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.views.decorators.cache import cache_control
 from mainapp.models import JobSeeker,LoginInfo
 from adminapp.models import JobInfo
-from . models import Response
+from . models import Response, AppliedJob
 import datetime
 
 # Create your views here.
@@ -12,7 +12,9 @@ def userdash(request):
     try:
         if request.session['userid']!=None:
             js=JobSeeker.objects.get(emailaddress=request.session['userid'])
-            return render(request,'userdash.html',{"js":js})
+            jobcount = JobInfo.objects.all().count()
+            ajcount =AppliedJob.objects.filter(emailaddress=js.emailaddress).count()
+            return render(request,'userdash.html',locals())
     except KeyError:
         messages.error(request,"Login First")
         return redirect('login')
@@ -80,6 +82,44 @@ def giveresponse(request):
                 messages.success(request,"Response Submitted Successfully✅")
                 return redirect("giveresponse")
             return render(request,'giveresponse.html',{"js":js})
+    except KeyError:
+        messages.error(request,"Login First")
+        return redirect('login')
+
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def applyjob(request,jobid):
+    try:
+        if request.session['userid']!=None:
+            js=JobSeeker.objects.get(emailaddress=request.session['userid'])
+            check_applied = AppliedJob.objects.filter(jobid=jobid, emailaddress=js.emailaddress).exists()
+            if check_applied:
+                messages.warning(request,"You have already applied for this job")
+                return redirect("viewjobs")
+            job =JobInfo.objects.get(id = jobid)
+            jobid = job.id
+            title = job.title
+            description = job.description
+            name = js.name
+            contactno = js.contactno
+            emailaddress = js.emailaddress
+            qualification =js.qualification
+            experience = js.experience
+            keyskill =js.keyskill
+            applieddate = datetime.datetime.today().strftime("%d/%m/%Y")
+            aj = AppliedJob(jobid = jobid, title=title, description=description, name=name, contactno=contactno, emailaddress=emailaddress, qualification=qualification, experience=experience, keyskill=keyskill, applieddate=applieddate)
+            aj.save()
+            messages.success(request,"You have applied job successfully✅")
+            return redirect('viewjobs')
+    except KeyError:
+        messages.error(request,"Login First")
+        return redirect('login')
+
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
+def userprofile(request):
+    try:
+        if request.session['userid']!=None:
+            js =JobSeeker.objects.get(emailaddress = request.session['userid'])
+            return render(request,'userprofile.html',locals())
     except KeyError:
         messages.error(request,"Login First")
         return redirect('login')

@@ -3,128 +3,121 @@
 {% block main %}
 
 <style>
-.dashboard-title {
-    color: #1C2740;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1.25rem;
-}
-
-.greeting-card {
-    background: linear-gradient(120deg, #0C1F47, #1D3970);
-    border-radius: 16px;
-    color: #FFFFFF;
-    padding: 1.6rem 1.8rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 8px 24px rgba(8,21,51,.12);
-}
-
-.greeting-card h4 {
-    font-weight: 700;
-    margin-bottom: .3rem;
-}
-
-.greeting-card p {
-    color: #9FB2D1;
-    margin: 0;
-    font-size: .9rem;
-}
-
-.dashboard-card {
-    background: #FFFFFF;
-    border: 1px solid #E6EBF2;
-    border-radius: 14px;
-    padding: 1.3rem;
-    height: 100%;
-    transition: .25s ease;
-}
-
-.dashboard-card:hover {
-    border-color: #3FA9F5;
-    box-shadow: 0 10px 25px rgba(8,21,51,.10);
-    transform: translateY(-3px);
-}
-
-.dashboard-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 11px;
-    background: #EAF5FE;
-    color: #3FA9F5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    margin-bottom: .85rem;
-}
-
-.dashboard-card h5 {
-    color: #1C2740;
-    font-weight: 700;
-    margin-bottom: .35rem;
-}
-
-.dashboard-card p {
-    color: #66738F;
-    font-size: .85rem;
-    margin-bottom: 0;
-}
-
-.dashboard-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #2F8FE0;
-    font-size: .85rem;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.dashboard-link:hover {
-    color: #1D3970;
-}
-
-@media (max-width:575.98px) {
     .dashboard-title {
-        font-size: 1.5rem;
+        color: #1C2740;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
     }
 
     .greeting-card {
-        padding: 1.25rem;
+        background: linear-gradient(120deg, #0C1F47, #1D3970);
+        border-radius: 16px;
+        color: #FFFFFF;
+        padding: 1.6rem 1.8rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 24px rgba(8, 21, 51, .12);
     }
-}
+
+    .greeting-card h4 {
+        font-weight: 700;
+        margin-bottom: .3rem;
+    }
+
+    .greeting-card p {
+        color: #9FB2D1;
+        margin: 0;
+        font-size: .9rem;
+    }
+
+    .dashboard-card {
+        background: #FFFFFF;
+        border: 1px solid #1E3A5F;
+        border-radius: 14px;
+        padding: 1.3rem;
+        height: 100%;
+        transition: .25s ease;
+    }
+
+    .dashboard-card:hover {
+        border-color: #3FA9F5;
+        box-shadow: 0 10px 25px rgba(8, 21, 51, .10);
+        transform: translateY(-3px);
+    }
+
+    .dashboard-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+        background: #EAF5FE;
+        color: #3FA9F5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        margin-bottom: .85rem;
+    }
+
+    .dashboard-card h5 {
+        color: #1C2740;
+        font-weight: 700;
+        margin-bottom: .35rem;
+    }
+
+    .dashboard-card p {
+        color: #66738F;
+        font-size: .85rem;
+        margin-bottom: 0;
+    }
+
+    .dashboard-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #2F8FE0;
+        font-size: .85rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .dashboard-link:hover {
+        color: #1D3970;
+    }
+
+    @media (max-width:575.98px) {
+        .dashboard-title {
+            font-size: 1.5rem;
+        }
+
+        .greeting-card {
+            padding: 1.25rem;
+        }
+    }
 </style>
-
-<h2 class="dashboard-title">JobSeeker Dashboard</h2>
-
 <div class="greeting-card">
     <h4>Welcome, {{js.name}}</h4>
     <p>Find suitable jobs and keep track of your applications.</p>
 </div>
-
 <div class="row g-4">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="dashboard-card">
             <div class="dashboard-icon">
                 <i class="fa-solid fa-list-check"></i>
             </div>
-            <h5>View Jobs</h5>
-            <p>Browse available jobs and check their details.</p>
-            <a href="{% url 'viewjobs' %}" class="dashboard-link">View Jobs</a>
+            <h3>{{ jobcount }}</h3>
+            <h5>Total Jobs</h5>
         </div>
     </div>
-
-```
-<div class="col-md-4">
-    <div class="dashboard-card">
-        <div class="dashboard-icon">
-            <i class="fa-solid fa-envelope-open-text"></i>
+    <div class="col-md-6">
+        <div class="dashboard-card">
+            <div class="dashboard-icon">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h3>{{ ajcount }}</h3>
+            <h5>Total Applied Jobs</h5>
         </div>
-        <h5>Response</h5>
-        <p>Check responses related to your job applications.</p>
-        <a href="{% url 'giveresponse' %}" class="dashboard-link">View Response</a>
     </div>
 </div>
-
+<!--
 <div class="col-md-4">
     <div class="dashboard-card">
         <div class="dashboard-icon">
@@ -135,7 +128,28 @@
         <a href="{% url 'changeuserpwd' %}" class="dashboard-link">Change Password</a>
     </div>
 </div>
-```
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="dashboard-card">
+            <div class="dashboard-icon">
+                <i class="fa-solid fa-list-check"></i>
+            </div>
+            <h5>View Jobs</h5>
+            <p>Browse available jobs and check their details.</p>
+            <a href="{% url 'viewjobs' %}" class="dashboard-link">View Jobs</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="dashboard-card">
+            <div class="dashboard-icon">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h5>Response</h5>
+            <p>Check responses related to your job applications.</p>
+            <a href="{% url 'giveresponse' %}" class="dashboard-link">View Response</a>
+        </div>
+    </div>
+</div>-->
 
 </div>
 

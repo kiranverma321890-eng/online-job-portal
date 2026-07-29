@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import LoginInfo, JobSeeker, Enquiry
 from django.contrib import messages
+from adminapp.models import JobInfo
 import datetime
 
 # Create your views here.
@@ -27,7 +28,8 @@ def faq(request):
     return render(request,'faq.html')
 
 def jobs(request):
-    return render(request,'jobs.html')
+    ji = JobInfo.objects.all().order_by('-id')
+    return render(request,'jobs.html',{"ji":ji})
 
 def login(request):
     if request.method=="POST":

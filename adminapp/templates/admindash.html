@@ -1,189 +1,308 @@
 {% extends 'adminbase.html' %}
 {% load static %}
+
 {% block admin %}
 
 <style>
-/* Dashboard */
-body {
-    background: #F5F7FA !important;
-    color: #2D3748;
-}
-
-.container-fluid {
-    background: #F5F7FA;
-}
-
-.container-fluid > h2 {
-    color: #1E3A5F !important;
-    font-size: 2.1rem;
-    font-weight: 700;
-    letter-spacing: .2px;
-}
-
-/* Dashboard Cards */
-.glass-card {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
-    transition: all .25s ease;
-}
-
-.glass-card:hover {
-    border-color: #4F9DDE !important;
-    box-shadow: 0 12px 30px rgb(9, 36, 71);
-    transform: translateY(-3px);
-}
-
-.feature-card {
-    min-height: 190px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.feature-card i {
-    margin-bottom: 15px;
-}
-
-.feature-card h6 {
-    color: #718096 !important;
-    font-weight: 500;
-}
-
-.feature-card h2 {
-    color: #1E3A5F !important;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-/* Icons */
-.feature-card .text-info {
-    color: #4F9DDE !important;
-}
-
-.feature-card .text-success {
-    color: #2563EB !important;
-}
-
-.feature-card .text-warning {
-    color: #4F9DDE !important;
-}
-
-.feature-card .text-danger {
-    color: #1E3A5F !important;
-}
-
-/* Performance Section */
-.glass-card h4 {
-    color: #1E3A5F !important;
-    font-weight: 600;
-}
-
-.glass-card .btn {
-    background: #1E3A5F !important;
-    color: #FFFFFF !important;
-    border: 1px solid #1E3A5F;
-    border-radius: 8px;
-}
-
-.glass-card .btn:hover {
-    background: #2563EB !important;
-    border-color: #2563EB;
-}
-
-/* Chart */
-.chart-area {
-    height: 350px;
-    border-radius: 12px;
-    border: 1px dashed #D6DEE8;
-    background: #F8FAFC;
-}
-
-/* Responsive */
-@media (max-width: 767px) {
-    .container-fluid > h2 {
-        font-size: 1.7rem;
+    body {
+        background: #F5F7FA !important;
+        color: #2D3748;
     }
 
-    .feature-card {
-        min-height: 160px;
+    .container-fluid {
+        background: #F5F7FA;
     }
 
-    .chart-area {
-        height: 280px;
+    /* Dashboard Header */
+    .dashboard-header {
+        background-color: #1E3A5F;
+        border-radius: 25px;
+        color: white;
     }
-}
+
+    .dashboard-header h3 {
+        font-weight: 700;
+    }
+
+    /* Dashboard Cards */
+    .dashboard-card {
+        border: 2px solid #1E3A5F;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(30, 58, 95, 0.15);
+        transition: 0.3s ease;
+        background: #FFFFFF;
+    }
+
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(30, 58, 95, 0.25);
+    }
+
+    .dashboard-card h1 {
+        color: #1E3A5F;
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+
+    .dashboard-card h3 {
+        color: #718096;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+
+    /* Recent Jobs Glass Card */
+    .table-glass {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+        overflow-x: auto;
+        transition: .3s;
+    }
+
+    .table-glass:hover {
+        border-color: #4F9DDE;
+        box-shadow: 0 12px 30px rgba(9, 36, 71, .25);
+    }
+
+
+    /* Table Title */
+    .table-title {
+        color: #1E3A5F;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+
+    /* Table */
+    .table {
+        color: #2D3748;
+        margin: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .table-css thead th {
+        background: #F1F5F9;
+        color: #1E3A5F;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 15px;
+        border-bottom: 1px solid #D6DEE8;
+        white-space: nowrap;
+    }
+
+    .table-css tbody td {
+        color: #2D3748;
+        padding: 15px;
+        border-bottom: 1px solid #E2E8F0;
+        vertical-align: middle;
+    }
+
+    .table-css tbody tr {
+        transition: .25s;
+    }
+
+    .table-css tbody tr:hover {
+        background: #F8FAFC;
+    }
+
+    .table-css tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+
+    /* Mobile */
+    @media (max-width: 767px) {
+
+        .dashboard-header {
+            border-radius: 18px;
+        }
+
+        .dashboard-card {
+            margin-bottom: 10px;
+        }
+
+        .table-glass {
+            padding: 15px;
+        }
+
+        .table-css thead th,
+        .table-css tbody td {
+            padding: 10px;
+        }
+    }
 </style>
+
 
 <div class="container-fluid mt-3">
 
-    <h2 class="fw-bold">ADMIN DASHBOARD</h2>
+    <!-- Dashboard Header -->
+    <div class="row text-light p-4 dashboard-header">
 
-    <div class="row g-4" style="margin-top:10px;">
+        <div class="col-sm-12">
 
-        <!-- Total Jobs -->
-        <div class="col-md-3">
-            <div class="glass-card feature-card text-center p-4 h-100 hover-lift">
-                <i class="bi bi-briefcase-fill fs-1 text-info"></i>
-                <h6 class="mt-3">Total Jobs</h6>
-                <h2>{{total_jobs}}</h2>
-            </div>
-        </div>
+            <h3 class="text-light">
+                ADMIN DASHBOARD
+            </h3>
 
-        <!-- Job Seekers -->
-        <div class="col-md-3">
-            <div class="glass-card feature-card text-center p-4 h-100 hover-lift">
-                <i class="bi bi-people-fill fs-1 text-success"></i>
-                <h6 class="mt-3">Job Seekers</h6>
-                <h2>{{total_seekers}}</h2>
-            </div>
-        </div>
+            <p class="mb-0">
+                Manage jobs, job seekers, applications and enquiries
+                from your admin dashboard.
+            </p>
 
-        <!-- Posted Jobs -->
-        <div class="col-md-3">
-            <div class="glass-card feature-card text-center p-4 h-100 hover-lift">
-                <i class="bi bi-file-earmark-text-fill fs-1 text-warning"></i>
-                <h6 class="mt-3">Posted Jobs</h6>
-                <h2>10</h2>
-            </div>
-        </div>
-
-        <!-- Enquiries -->
-        <div class="col-md-3">
-            <div class="glass-card feature-card text-center p-4 h-100 hover-lift">
-                <i class="bi bi-chat-dots-fill fs-1 text-danger"></i>
-                <h6 class="mt-3">Enquiries</h6>
-                <h2>{{total_enquiry}}</h2>
-            </div>
         </div>
 
     </div>
 
-    <!-- Graph Section -->
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="glass-card p-4">
 
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4 class="mb-0">Platform Performance</h4>
+    <!-- Dashboard Cards -->
+    <div class="row mt-3 g-3">
 
-                    <button class="btn px-4 fw-semibold">
-                        View Full Report
-                    </button>
-                </div>
+        <!-- Total Jobs -->
+        <div class="col-sm-4">
 
-                <!-- Chart Area -->
-                <div class="chart-area">
-                    <!-- Chart goes here -->
-                </div>
+            <div class="card p-3 dashboard-card h-100">
+
+                <h1>{{ jscount }}</h1>
+
+                <h3>Total Jobseeker</h3>
 
             </div>
+
         </div>
+
+
+        <!-- Job Seekers -->
+        <div class="col-sm-4">
+            <div class="card p-3 dashboard-card h-100">
+                <h1>{{ enqcount }}</h1>
+                <h3>Total Enquiries</h3>
+            </div>
+        </div>
+
+
+        <!-- Posted Jobs -->
+        <div class="col-sm-4">
+
+            <div class="card p-3 dashboard-card h-100">
+
+                <h1>{{ jobcount}}</h1>
+
+                <h3>Total Jobs</h3>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Dashboard Cards -->
+    <d class="row mt-3 g-3">
+
+        <!-- Total Jobs -->
+        <div class="col-sm-4">
+
+            <div class="card p-3 dashboard-card h-100">
+
+                <h1>{{ feedcount }}</h1>
+
+                <h3>Total Feedback</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- Job Seekers -->
+        <div class="col-sm-4">
+
+            <div class="card p-3 dashboard-card h-100">
+
+                <h1>{{ compcount }}</h1>
+
+                <h3>Job Complaints</h3>
+
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+
+            <div class="card p-3 dashboard-card h-100">
+
+                <h1>{{ ajcount }}</h1>
+
+                <h3>Total Applied Jobs</h3>
+
+            </div>
+
+        </div>
+    </div>
+
+
+<!-- Recent Job Posts -->
+<div class="row mt-4">
+
+    <div class="col-12">
+
+        <div class="table-glass">
+
+            <h4 class="table-title">
+                RECENT JOB POSTS
+            </h4>
+
+            <table class="table table-css">
+
+                <thead>
+
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Job Post</th>
+                        <th>Description</th>
+                        <th>Posted Date</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for j in ji %}
+
+                    <tr>
+
+                        <td>{{ forloop.counter }}</td>
+
+                        <td>{{ j.title }}</td>
+
+                        <td>{{ j.description }}</td>
+
+                        <td>{{ j.posteddate }}</td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="4" class="text-center">
+                            No recent jobs posted.
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
     </div>
 
 </div>
 
-{% endblock %}
+</div>
 
+{% endblock %}
